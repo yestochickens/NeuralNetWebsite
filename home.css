@@ -1,3 +1,12 @@
 html {
-    background-color: rgb(255, 254, 238);
+    background-color: rgb(255, 255, 243);
 }
+
+.titleText {
+    font-size: 7.5 px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+}
+

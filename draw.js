@@ -1,40 +1,29 @@
 document.addEventListener("DOMContentLoaded", function() {
+    addCanvas();
+    setCellColorListener();
     let number = Math.floor((Math.random() * 10));
     document.getElementById("computer-prediction").innerHTML = 'Computer Prediction: ' +  number;
 });
 
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+function addCanvas() {
+    const canvas = document.querySelector(".drawing");
+    
+    canvas.style.gridTemplateRows = `repeat(28, 20px)`;
+    canvas.style.gridTemplateColumns = `repeat(28, 20px)`;
 
-let drawing = false;
-
-// Set the drawing color to black
-ctx.strokeStyle = 'black';
-ctx.lineWidth = 2;
-
-function startDrawing(e) {
-    drawing = true;
-    draw(e); // start drawing immediately when mouse is clicked
+    for (let i = 0; i < (28 * 14); i++) {
+        const cell = document.createElement("div");
+        cell.className = "cell"
+        canvas.appendChild(cell);
+    }
 }
 
-function stopDrawing() {
-    drawing = false;
-    ctx.beginPath(); // reset the drawing path
+function setCellColorListener() {
+    const cells = document.querySelectorAll(".cell");
+
+    cells.forEach(cell => {
+        cell.addEventListener("mouseover", () => {
+            cell.style.backgroundColor = 'black';
+        })
+    });
 }
-
-function draw(e) {
-    if (!drawing) return;
-
-    ctx.lineCap = 'round';
-
-    ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-}
-
-// Event listeners for mouse events
-canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('mouseup', stopDrawing);
-canvas.addEventListener('mousemove', draw);
-

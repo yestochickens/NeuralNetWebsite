@@ -10,8 +10,15 @@
 }
 
 .drawing {
-    height: 560px;
+    display: grid;
+    grid-template-rows: repeat(28, 1fr);
+    grid-template-columns: repeat(28, 1fr);
     width: 560px;
-    display: flex;
-    background-color: black;
+    height: 560px;
+    padding-bottom: 24px;
+}
+
+.cell {
+    border: 0.1px solid rgb(255, 212, 212);
+    background-color: #fff;
 }

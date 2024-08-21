@@ -8,26 +8,3 @@
     display: flex;
     justify-content: space-between;
 }
-
-#grid-container {
-    display: grid;
-    grid-template-columns: repeat(28, 1fr);
-    grid-template-rows: repeat(28, 1fr);
-    width: 60vw;  /* Grid takes 60% of viewport width */
-    height: 60vw; /* Grid is square, height equals width */
-    max-width: 60vh; /* Ensure grid doesn't exceed viewport height */
-    max-height: 60vh;  
-    gap: 1px;
-    background-color: black;
-    outline: 100px dotted green ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.grid-container {
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

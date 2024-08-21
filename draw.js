@@ -1,8 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     addCanvas();
-    setCellColorListener();
+    draw();
     let number = Math.floor((Math.random() * 10));
     document.getElementById("computer-prediction").innerHTML = 'Computer Prediction: ' +  number;
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "c") {
+        clearColors();
+      }
 });
 
 function addCanvas() {
@@ -18,12 +24,42 @@ function addCanvas() {
     }
 }
 
-function setCellColorListener() {
+function draw() {
+    const cells = document.querySelectorAll(".cell");
+    let isDrawing = false;
+
+
+    cells.forEach(cell => {
+        cell.addEventListener("mousedown", () => {
+            isDrawing = true;
+            cell.style.backgroundColor = "rgb(0, 0, 0)";
+        });
+
+        cell.addEventListener("mousemove", () => {
+            if (isDrawing) {
+                cell.style.backgroundColor = "rgb(0, 0, 0)";
+            }
+        });
+
+        cell.addEventListener("mouseup", () => {
+            isDrawing = false;
+        });
+
+        cell.addEventListener("mouseleave", () => {
+            if (isDrawing) {
+                cell.style.backgroundColor = "rgb(0, 0, 0)";
+            }
+        });
+    });
+    document.addEventListener("mouseup", () => {
+        isDrawing = false;
+    });
+}
+
+function clearColors() {
     const cells = document.querySelectorAll(".cell");
 
     cells.forEach(cell => {
-        cell.addEventListener("mouseover", () => {
-            cell.style.backgroundColor = 'black';
-        })
+        cell.style.backgroundColor = 'white';
     });
 }

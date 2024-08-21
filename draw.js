@@ -1,7 +1,10 @@
 document.addEventListener("keydown", (event) => {
     if (event.key === "c") {
         clearColors();
-      }
+    }
+    if (event.key === "g") {
+        getData();
+    }
 });
 
 function addCanvas() {
@@ -54,6 +57,17 @@ function clearColors() {
     cells.forEach(cell => {
         cell.style.backgroundColor = 'rgb(255, 255, 255)';
     });
+}
+
+function getData(){
+    let pictureArr = []
+
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(cell => {
+        pictureArr.push((255 - cell.style.backgroundColor.split(',')[1]) / 255)
+    });
+    document.getElementById("test").textContent = pictureArr;
+    console.log(pictureArr)
 }
 
 let mouseDown = false;

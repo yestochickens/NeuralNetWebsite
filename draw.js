@@ -25,6 +25,11 @@ function calculateDistance(x1, y1, x2, y2) {
     return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
 
+let mouseDown = false;
+let lastMouseX = null;
+let lastMouseY = null;
+const canvas = document.querySelector(".drawing");
+
 function handleMouseMove(event) {
     if (!mouseDown) return;
 
@@ -32,24 +37,67 @@ function handleMouseMove(event) {
     const mouseX = event.clientX - rect.left;
     const mouseY = event.clientY - rect.top;
 
-    const cells = document.querySelectorAll(".cell");
-    cells.forEach(cell => {
-        const cellRect = cell.getBoundingClientRect();
-        const cellX = cellRect.left + (cellRect.width / 2) - rect.left;
-        const cellY = cellRect.top + (cellRect.height / 2) - rect.top;
+    if (lastMouseX !== null && lastMouseY !== null) {
+        drawLine(lastMouseX, lastMouseY, mouseX, mouseY);
+    }
 
-        const distance = calculateDistance(mouseX, mouseY, cellX, cellY);
-        const maxDistance = 40;
-        const colorIntensity = Math.max(0, 1 - (distance / maxDistance));
-        const newColorValue = Math.min(255 * (1 - colorIntensity), cell.style.backgroundColor.split(',')[1]);
-
-        const newColor = `rgb(${newColorValue}, ${newColorValue}, ${newColorValue})`;
-        
-        if (cell.style.backgroundColor !== newColor) {
-            cell.style.backgroundColor = newColor;
-        }
-    });
+    lastMouseX = mouseX;
+    lastMouseY = mouseY;
 }
+
+function drawLine(x1, y1, x2, y2) {
+    const cells = document.querySelectorAll(".cell");
+    const rect = canvas.getBoundingClientRect();
+
+    const distance = calculateDistance(x1, y1, x2, y2);
+    const steps = Math.ceil(distance / 10); // Higher steps will create a smoother line
+    const dx = (x2 - x1) / steps;
+    const dy = (y2 - y1) / steps;
+
+    for (let i = 0; i <= steps; i++) {
+        const currentX = x1 + dx * i;
+        const currentY = y1 + dy * i;
+
+        cells.forEach(cell => {
+            const cellRect = cell.getBoundingClientRect();
+            const cellX = cellRect.left + (cellRect.width / 2) - rect.left;
+            const cellY = cellRect.top + (cellRect.height / 2) - rect.top;
+
+            const dist = calculateDistance(currentX, currentY, cellX, cellY);
+            const maxDistance = 40;
+            const colorIntensity = Math.max(0, 1 - (dist / maxDistance));
+            const newColorValue = Math.min(255 * (1 - colorIntensity), cell.style.backgroundColor.split(',')[1]);
+
+            const newColor = `rgb(${newColorValue}, ${newColorValue}, ${newColorValue})`;
+
+            if (cell.style.backgroundColor !== newColor) {
+                cell.style.backgroundColor = newColor;
+            }
+        });
+    }
+}
+
+canvas.addEventListener("mousedown", () => {
+    mouseDown = true;
+    lastMouseX = null;
+    lastMouseY = null;
+});
+
+canvas.addEventListener("mouseup", () => {
+    mouseDown = false;
+    lastMouseX = null;
+    lastMouseY = null;
+});
+
+canvas.addEventListener("mouseleave", () => {
+    mouseDown = false;
+    lastMouseX = null;
+    lastMouseY = null;
+});
+
+canvas.addEventListener("mousemove", handleMouseMove);
+
+addCanvas();
 
 function clearColors() {
     const cells = document.querySelectorAll(".cell");
@@ -69,18 +117,3 @@ function getData(){
     document.getElementById("test").textContent = pictureArr;
     console.log(pictureArr)
 }
-
-let mouseDown = false;
-const canvas = document.querySelector(".drawing");
-
-canvas.addEventListener("mousedown", () => {
-    mouseDown = true;
-});
-
-canvas.addEventListener("mouseup", () => {
-    mouseDown = false;
-});
-
-canvas.addEventListener("mousemove", handleMouseMove);
-
-addCanvas();

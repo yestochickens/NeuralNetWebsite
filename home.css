@@ -1,12 +1,56 @@
-html {
-    background-color: rgb(255, 255, 243);
+.body {
+    background-color: rgb(255, 255, 255)
+}
+ 
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+ 
+header {
+    background: rgb(180,180,180);
+}
+ 
+ 
+/*::after creates a pseudo element that is the last child of the selected element
+   - inline by default
+   - adds cosmetic content to an element
+*/
+
+header::after {
+    content: ''; /*responsible for allowing smooth navbar with no bunching*/
+    display: table;
+    clear: both;    
+}
+ 
+
+/*all navbar css*/
+nav {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    float: right;
+}
+ 
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
-.titleText {
-    font-size: 7.5 px;
-    color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center;
-    /* text-align: center; */
+nav li {
+    display: inline-block; /*puts a little space between them allows for text allignment*/
+    margin-left: 35px;
+    padding-top: 25px; /*specific to the animation (can be changed)*/
 }
 
+nav a {
+    color: rgb(0,0,0);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+nav a:hover{
+    
+    /* font-weight: bold; */ /*do not use this until we find a way to correct navbar shift*/
+}

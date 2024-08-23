@@ -43,6 +43,7 @@ function handleMouseMove(event) {
 
     lastMouseX = mouseX;
     lastMouseY = mouseY;
+    getData()
 }
 
 function drawLine(x1, y1, x2, y2) {
@@ -50,7 +51,7 @@ function drawLine(x1, y1, x2, y2) {
     const rect = canvas.getBoundingClientRect();
 
     const distance = calculateDistance(x1, y1, x2, y2);
-    const steps = Math.ceil(distance / 10); // Higher steps will create a smoother line
+    const steps = Math.ceil(distance / 10);
     const dx = (x2 - x1) / steps;
     const dy = (y2 - y1) / steps;
 
@@ -105,6 +106,7 @@ function clearColors() {
     cells.forEach(cell => {
         cell.style.backgroundColor = 'rgb(255, 255, 255)';
     });
+    getData()
 }
 
 function getData(){
@@ -115,5 +117,5 @@ function getData(){
         pictureArr.push((255 - cell.style.backgroundColor.split(',')[1]) / 255)
     });
     document.getElementById("test").textContent = pictureArr;
-    console.log(pictureArr)
+    return pictureArr
 }

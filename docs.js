@@ -3,13 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var collapse = document.getElementById(`collapse${i}`);
         if (collapse) {
             collapse.addEventListener('hidden.bs.collapse', function () {
-                var childAccordions = document.querySelectorAll(`#collapse${i} .accordion-collapse`);
+                
+                var childAccordions = document.querySelectorAll(`.accordion-collapse .show`);
                 childAccordions.forEach(function (accordion) {
-                    if (accordion.classList.contains('show')) {
-                        var collapseInstance = bootstrap.Collapse.getInstance(accordion);
-                        if (collapseInstance) {
-                            collapseInstance.hide();
-                        }
+                    var collapseInstance = bootstrap.Collapse.getInstance(accordion);
+                    if (collapseInstance) {
+                        collapseInstance.hide();
                     }
                 });
             });

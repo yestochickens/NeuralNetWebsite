@@ -55,7 +55,7 @@ nav a {
 }
 
 nav a:hover{
-    color: rgb(0, 26, 255);
+    /* color: rgb(0, 26, 255); */
     text-decoration: underline;
     /* font-weight: bold; */ /*do not use this until we find a way to correct navbar shift*/
 }

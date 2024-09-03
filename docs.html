@@ -13,121 +13,37 @@
     <main>
         <script type="text/javascript" src="docs.js"></script>
         <h1 class="align-center title">Docs</h1>
-        <div class="accordion">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="heading1">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                    Initializers
-                </button>
-              </h2>
-              <div id="collapse1" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading11">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
-                        Xavier/Glorot
-                      </button>
+        <div class="container mt-5">
+            <div class="accordion" id="parentAccordion">
+                <!-- Parent Accordion Item 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Losses
+                        </button>
                     </h2>
-                    <div id="collapse11" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        lol
-                      </div>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#parentAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="lossesAccordion"></div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading12">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
-                        Gaussian
-                      </button>
-                    </h2>
-                    <div id="collapse12" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        lol
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading13">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
-                        Uniform
-                      </button>
-                    </h2>
-                    <div id="collapse12" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        lol
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="heading2">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                    Activators
-                </button>
-              </h2>
-              <div id="collapse2" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading21">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse21" aria-expanded="false" aria-controls="collapse21">
-                        Softmax
-                      </button>
-                    </h2>
-                    <div id="collapse21" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        lol
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading22">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
-                        Rectified Linear Unit (ReLU)
-                      </button>
-                    </h2>
-                    <div id="collapse22" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        lol
-                      </div>
-                    </div>
-                  </div>
-                  
 
-                  <li>Leaky Rectified Linear Unit (Leaky ReLU)</li>
-                  <li>Sigmoid</li>
-                  <li>Tanh</li>
-                  <li>SoftPlus</li>
-                  <li>Mish</li>                
+                <!-- Parent Accordion Item 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Activations
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#parentAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="activatorsAccordion"></div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="heading3">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                    Losses
-                </button>
-              </h2>
-              <div id="collapse3" class="accordion-collapse collapse">
-                <div class="accordion-body" id="lossesAccordion">
-                  
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                  Optimizers
-                </button>
-              </h2>
-              <div id="collapse4" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                  test
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
     </main>
   </body>
 </html>

@@ -8,7 +8,8 @@ body {
     width: 70%;
     margin: 0 auto; /* Centers the text block */
     text-align: left; /* Centers the text within the block */
-    padding: 15px 0;
+    padding-top: 25px;
+    padding-bottom: 10px;
     border-bottom: 1px solid black;
 }
 
@@ -18,6 +19,10 @@ body {
     background-color: black;
     margin-top: 10px; /* Optional: adds space above the bar */
     margin-bottom: 10px; /* Optional: adds space below the bar */
+}
+
+.mainImage {
+    
 }
 
 .container {

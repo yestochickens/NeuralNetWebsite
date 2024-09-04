@@ -5,7 +5,7 @@ body {
 
 .titleText {
     font-size: 30px;
-    width: 65%;
+    width: 55%;
     margin: 0 auto; /* Centers the text block */
     text-align: left; /* Centers the text within the block */
     padding-top: 25px;
@@ -22,24 +22,25 @@ body {
 }
 
 .mainImage {
-    width: 55%;
+    width: 45%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-top: 25px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     text-align: left; 
 }
 
 figcaption {
     display: block;
-    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
     font-size: 14px; /* Sets the font size of the caption */
     color: rgb(0,0,0); /* Sets the text color of the caption */
     text-align: left; /* Centers the caption text */
-    margin-top: 3px; /* Adds space between the image and the caption */
     font-style: italic; /* Makes the caption text italic */
-    padding: 10px; /* Adds padding inside the caption */
+    padding: 0px; /* Adds padding inside the caption */
     border-radius: 5px; /* Rounds the corners of the caption background */
 }
 

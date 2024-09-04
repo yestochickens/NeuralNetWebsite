@@ -12,5 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
     $(function(){
         $("#lossesAccordion").load("Accordions/lossesAccordion.html");
         $("#activatorsAccordion").load("Accordions/activatorsAccordion.html");
+        $("#intializersAccordion").load("Accordions/intializersAccordion.html");
+        $("#optimizersAccordion").load("Accordions/optimizersAccordion.html");
       });
 });
+

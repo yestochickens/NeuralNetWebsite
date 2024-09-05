@@ -119,3 +119,9 @@ function getData(){
     document.getElementById("test").textContent = pictureArr;
     return pictureArr
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    $(function(){
+        $("#navbar").load("nav/navbar.html");
+    });
+});

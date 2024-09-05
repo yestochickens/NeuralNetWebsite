@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', function() {
+    $(function(){
+        $("#navbar").load("nav/navbar.html");
+    });
+});
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "c") {
         clearColors();

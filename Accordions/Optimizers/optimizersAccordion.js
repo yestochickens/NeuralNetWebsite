@@ -1,0 +1,1 @@
+$("#AdamAccordion").load("accordions/Optimizers/AdamAccordion.html");

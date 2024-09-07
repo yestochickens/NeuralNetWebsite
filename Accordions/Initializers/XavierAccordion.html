@@ -1,0 +1,68 @@
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild19">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild19" aria-expanded="true" aria-controls="collapseChild19">
+            Parameters
+        </button>
+    </h2>
+    <div id="collapseChild19" class="accordion-collapse collapse" aria-labelledby="headingChild19">
+        <div class="accordion-body">
+            <p>
+                \[
+                \mathbf{\nabla_{\Theta} L} \leftarrow \mathbf{\nabla_{\Theta} L} + \lambda \Theta
+                \]
+            </p>
+        
+            <p>
+                \[
+                \delta_\iota \leftarrow \beta_1 \delta_{\iota - 1} + (1 - \beta_1) \mathbf{\nabla_{\Theta} L}
+                \]
+            </p>
+        
+            <p>
+                \[
+                \upsilon_\iota \leftarrow \beta_2 \upsilon_{\iota - 1} + (1 - \beta_2) (\mathbf{\nabla_{\Theta} L})^2
+                \]
+            </p>
+        
+            <p>
+                \[
+                \widehat{\delta_\iota} \leftarrow \frac{\delta_\iota}{1 - \beta_1^\iota}
+                \]
+            </p>
+        
+            <p>
+                \[
+                \widehat{\upsilon_\iota} \leftarrow \frac{\upsilon_\iota}{1 - \beta_2^\iota}
+                \]
+            </p>
+        
+            <p>
+                \[
+                \iota \leftarrow \iota + 1
+                \]
+            </p>
+        
+            <p>
+                \[
+                \widehat{\upsilon_{max}} \leftarrow \max(\widehat{\upsilon_\iota}, \widehat{\upsilon_{max}})
+                \]
+            </p>
+        
+            <p>
+                \[
+                \widehat{\upsilon_\iota} \leftarrow
+                \begin{cases}
+                \widehat{\upsilon_{max}} & \text{if } \text{ams} = 1 \\
+                \widehat{\upsilon_\iota} & \text{otherwise}
+                \end{cases}
+                \]
+            </p>
+        
+            <p>
+                \[
+                \Theta \leftarrow \frac{-\alpha \widehat{\delta_\iota}}{\sqrt{\widehat{\upsilon_\iota}} + \epsilon}
+                \]
+            </p>
+        </div>
+    </div>
+</div>

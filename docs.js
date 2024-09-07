@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     $(function(){
-        $("#lossesAccordion").load("accordions/lossesAccordion.html");
-        $("#activatorsAccordion").load("accordions/activatorsAccordion.html");
-        $("#intializersAccordion").load("accordions/intializersAccordion.html");
-        $("#optimizersAccordion").load("accordions/optimizersAccordion.html");
+        $("#lossesAccordion").load("Accordions/Losses/lossesAccordion.html");
+        $("#activatorsAccordion").load("Accordions/Activators/activatorsAccordion.html");
+        $("#intializersAccordion").load("Accordions/Initializers/intializersAccordion.html");
+        $("#optimizersAccordion").load("Accordions/Optimizers/optimizersAccordion.html");
         $("#navbar").load("nav/navbar.html");
       });
 });

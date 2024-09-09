@@ -16,22 +16,30 @@
     <!-- <div class = "separationBar"></div>  -->
     <div class="titleText">Creating Neural Networks from Scratch</div>  
     <figure>
-      <img src="assets/image.png" alt="image" class="mainDisplay" id="coverImage">
+      <img src="resources/assets/image.png" alt="image" class="mainDisplay" id="coverImage">
       <figcaption>Basic diagram of a Neural Network with input, hidden, and output layers</figcaption>
         <h1 class ="image"></h1>
     </figure>
-    <div class = "mainDisplay" id = "homeInformationText">
-      In recent years, machine learning and artificial intelligence have gained a massive surge in interest. The general public is now fully aware of the limitless possibilities provided by this growing technology. Breakthroughs such as the innovation of convolutional neural networks (CNNs) and recurrent neural networks (RNNs) have worked to improve performance issues of the past, while creations like GPT-3 have demonstrated the vast scale of said models. What is even more amazing (frightening to some) is that there is still so much left to explore and develop in machine learning. This has opened the public to discussing/debating how the emerging technology should be used, to the point where it has become a topic of major contention. 
 
-      However, looking past all the controversy and politics, one can still admire the complexity and power of such models. Our team, who held a great admiration and deep interest in this topic, tasked ourselves with learning more about the synthesis and inner workings of machine learning models. We did so by creating a neural network from scratch, unaided by preexisting libraries, such as Pytorch or tensor flow. This was done so with the intention that it would help us get into the gritty math concepts and ideas, allowing us to utilize these concepts in practice. 
-      
-      We first set off on this machine-learning journey at the beginning of the 2024 school year, which was our team’s junior year in high school. Even though we were eager to learn and expand our knowledge, the task was extremely challenging and time-consuming. Our group underwent a lot of change and additions as the idea of being able to create a model seemed more feasible. Speaking to you at the beginning of our team’s senior year in high school, and the start of the 2025 academic year, we are proud to say we have finally created a working neural network, that you can text on this site now. You can do so by accessing the link here or going to the demo page in the navbar. 
-      
-      Also included with the workable model are several pages in this site, designed and written to help you not only understand how a neural network works, but also help describe the process we undertook to create our own. Everything from the general concepts, that are fundamental to understanding how machine learning works, to the deeply complex mathematical functions and equations are included. This will allow you to get as granular as you would like in your understanding. You can again access these pages by going to the attached links below this paragraph, or by accessing them in the navbar.
-      
-      Now, our neural network isn’t extremely complex in function and runs a simple digit recognizer. There is an input grid that is 28 by 28 in dimension. By clicking and dragging their cursor across the grid, the user will change the input for the box directly underneath and several surrounding boxes, which is demonstrated by a change in color. It is intended that the user tries to draw single-digit numbers, between 0 and 9, as this is the data that our model is trained on and will be able to recognize. I hope you enjoy testing it for yourself and are inspired to learn more about this deeply interesting topic.
-      
+    <div class = "mainDisplay" id = "homeInformationText">
+      <p id="p1"></p>
+      <p id="p2"></p>
+      <p id="p3"></p>
+      <p id="p4"></p>
+      <p id="p5"></p>
     </div>
+    <script>
+      fetch("resources/text/homePage.json")
+          .then(response => response.json())
+          .then(data => {
+              document.getElementById('p1').innerText = data.p1;
+              document.getElementById('p2').innerText = data.p2;
+              document.getElementById('p3').innerText = data.p3;
+              document.getElementById('p4').innerText = data.p4;
+              document.getElementById('p5').innerText = data.p5;            
+          })
+          .catch(error => console.error('Error fetching JSON:', error));
+    </script>
    </main>
  </body>
 </html>

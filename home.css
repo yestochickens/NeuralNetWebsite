@@ -4,7 +4,7 @@ body {
 }   
 
 .titleText {
-    font-size: 30px;
+    font-size: 33px;
     width: 55%;
     margin: 0 auto; /* Centers the text block */
     text-align: left; /* Centers the text within the block */
@@ -22,39 +22,38 @@ body {
 }
 
 .mainDisplay {
-    width: 45%;
+    width: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 25px;
-    padding-bottom: 5px;
+    /* padding-top: 0px; */
     text-align: left; 
-}
-
-.mainImage {
-    width: 45%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left; 
-}
-
-coverImage {
-    padding-top: 25px;
-    padding-bottom: 5px;
-}
-
-homeInformationText {
-    font-size: 14px;
+    font-size: 18px;
     color: rgb(0,0,0); /* Sets the text color of the caption */
 }
 
+.mainImage {
+    width: 50%;
+    display: block;
+    text-align: left; 
+}
+
+#coverImage {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#homeInformationText {
+    font-size: 18px;
+    color: rgb(0,0,0); /* Sets the text color of the caption */
+    margin-bottom: 5px;
+}
 
 figcaption {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 45%;
+    width: 50%;
     font-size: 14px; /* Sets the font size of the caption */
     color: rgb(0,0,0); /* Sets the text color of the caption */
     text-align: left; /* Centers the caption text */
@@ -67,11 +66,11 @@ figcaption {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 45%;
-    font-size: 14px; /* Sets the font size of the caption */
+    width: 50%;
+    font-size: 20px; /* Sets the font size of the caption */
     color: rgb(0,0,0); /* Sets the text color of the caption */
     text-align: left; /* Centers the caption text */
     font-style: italic; /* Makes the caption text italic */
     padding: 0px; /* Adds padding inside the caption */
-    border-radius: 5px; /* Rounds the corners of the caption background */
+    border-radius: 2px; /* Rounds the corners of the caption background */
 }

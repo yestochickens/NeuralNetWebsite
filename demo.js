@@ -115,13 +115,30 @@ function clearColors() {
     getData()
 }
 
-function getData(){
-    let pictureArr = []
-
+function getData() {
+    let pictureArr = [];
     const cells = document.querySelectorAll(".cell");
+    
     cells.forEach(cell => {
-        pictureArr.push((255 - cell.style.backgroundColor.split(',')[1]) / 255)
+        pictureArr.push((255 - cell.style.backgroundColor.split(',')[1]) / 255);
     });
-    document.getElementById("test").textContent = pictureArr;
-    return pictureArr
+
+    // Sending the data to the Flask API
+    fetch('http://45.63.57.237/demo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ image: pictureArr }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Prediction:', data);
+        document.getElementById("test").textContent = JSON.stringify(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+    return pictureArr;
 }

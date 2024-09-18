@@ -30,8 +30,8 @@ def howItWorks():
 @app.route('/process_data', methods=['POST'])
 def process_data():
     data = request.json.get('pictureArr')
-    test = main(data)
-    return jsonify(test)
+    returnPictureData = main(data)
+    return jsonify(returnPictureData)
 
 
 if __name__ == '__main__':

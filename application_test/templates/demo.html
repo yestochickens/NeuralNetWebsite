@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ url_for('static', filename='jquery.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='demo.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
-    <script src="{{ url_for('static', filename='home.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='nav/navbar.css') }}">
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
+    <script src="{{ url_for('static', filename='demo.js') }}"></script>
+    <script src="{{ url_for('static', filename='jquery.js') }}"></script>
     <script>
       $(document).ready(function(){
         $("#navbar").load("/static/nav/navbar.html");
@@ -20,13 +21,17 @@
       </div>
         <div>
           <h1 class="align-center title">Welcome to My Website</h1>  
-          <div class="drawing"></div>
-          <script src="{{ url_for('static', filename='demo.js') }}"></script>
-          <button><a href="/howItWorks">Learn about how it works</a></button>
-          <h2 class="align-center" id="computer-prediction">Computer Prediction: 0</h2>
-          <p id="test">test</p>
-          <div class="computer-percentage">
-            <p id="prob"></p>
+          <div class="main-container">
+            <div class="drawing-container">
+              <div class="drawing"></div>
+            </div>
+            <div class="info-section">
+              <h2 class="align-center" id="computer-prediction">Computer Prediction: 0</h2>
+              <div class="computer-percentage">
+                <p id="prob"></p>
+              </div>
+              <button><a href="/howItWorks">Learn about how it works</a></button>
+            </div>
           </div>
         </div>
     </main>

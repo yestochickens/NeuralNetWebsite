@@ -1,9 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    $(function(){
-        $("#navbar").load("nav/navbar.html");
-    });
-});
-
 document.addEventListener("keydown", (event) => {
     if (event.key === "c") {
         clearColors();
@@ -49,7 +43,6 @@ function handleMouseMove(event) {
 
     lastMouseX = mouseX;
     lastMouseY = mouseY;
-    getData()
 }
 
 function drawLine(x1, y1, x2, y2) {
@@ -123,5 +116,4 @@ function getData(){
         pictureArr.push((255 - cell.style.backgroundColor.split(',')[1]) / 255)
     });
     document.getElementById("test").textContent = pictureArr;
-    return pictureArr
 }

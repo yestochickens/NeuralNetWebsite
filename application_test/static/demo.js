@@ -115,5 +115,31 @@ function getData(){
     cells.forEach(cell => {
         pictureArr.push((255 - cell.style.backgroundColor.split(',')[1]) / 255)
     });
-    document.getElementById("test").textContent = pictureArr;
+    document.getElementById("test").textContent = "not working bumg";
+
+    fetch('/process_data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ pictureArr: pictureArr })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("computer-prediction").textContent = `Computer Prediction: ${data.pred}`;
+        document.getElementById("prob").textContent = 
+        `0: ${(data.prob[0][0] * 100).toFixed(2)}%
+         1: ${(data.prob[0][1] * 100).toFixed(2)}% 
+         2: ${(data.prob[0][2] * 100).toFixed(2)}%
+         3: ${(data.prob[0][3] * 100).toFixed(2)}%
+         4: ${(data.prob[0][4] * 100).toFixed(2)}%
+         5: ${(data.prob[0][5] * 100).toFixed(2)}%
+         6: ${(data.prob[0][6] * 100).toFixed(2)}%
+         7: ${(data.prob[0][7] * 100).toFixed(2)}%
+         7: ${(data.prob[0][8] * 100).toFixed(2)}%
+         9: ${(data.prob[0][9] * 100).toFixed(2)}%`
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }

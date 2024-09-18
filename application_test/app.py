@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+from preload_forward import main
 
 app = Flask(__name__)
 
@@ -25,6 +26,13 @@ def docs():
 @app.route('/howItWorks')
 def howItWorks():
     return render_template('howItWorks.html')
+
+@app.route('/process_data', methods=['POST'])
+def process_data():
+    data = request.json.get('pictureArr')
+    test = main(data)
+    return jsonify(test)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)

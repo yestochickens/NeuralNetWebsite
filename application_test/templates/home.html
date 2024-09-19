@@ -33,7 +33,7 @@
       <p id="p5"></p>
     </div>
     <script>
-      fetch("resources/text/homePage.json")
+      fetch("static/resources/text/homePage.json")
           .then(response => response.json())
           .then(data => {
               document.getElementById('p1').innerText = data.p1;

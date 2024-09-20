@@ -129,17 +129,16 @@ function getData() {
     .then(response => response.json())
     .then(data => {
         document.getElementById("computer-prediction").textContent = `Computer Prediction: ${data.pred}`;
-        document.getElementById("prob").textContent = 
-        `0: ${(data.prob[0][0] * 100).toFixed(2)}%\n
-         1: ${(data.prob[0][1] * 100).toFixed(2)}%\n
-         2: ${(data.prob[0][2] * 100).toFixed(2)}%\n
-         3: ${(data.prob[0][3] * 100).toFixed(2)}%\n
-         4: ${(data.prob[0][4] * 100).toFixed(2)}%\n
-         5: ${(data.prob[0][5] * 100).toFixed(2)}%\n
-         6: ${(data.prob[0][6] * 100).toFixed(2)}%\n
-         7: ${(data.prob[0][7] * 100).toFixed(2)}%\n
-         8: ${(data.prob[0][8] * 100).toFixed(2)}%\n
-         9: ${(data.prob[0][9] * 100).toFixed(2)}%`;
+         const probContainer = document.querySelector('.computer-percentage');
+
+         probContainer.innerHTML = '';
+
+         for (let i = 0; i < data.prob[0].length; i++) {
+            const probElement = document.createElement('p');
+            probElement.id = 'prob';
+            probElement.textContent = `${i}: ${(data.prob[0][i] * 100).toFixed(2)}%`;
+            probContainer.appendChild(probElement);
+         }
     })
     .catch(error => {
         console.error('Error:', error);

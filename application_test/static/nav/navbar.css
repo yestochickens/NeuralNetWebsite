@@ -1,13 +1,24 @@
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url('static/resources/Roboto/Roboto-Medium.ttf') format('truetype'); /* Replace 'path/to/font.ttf' with the actual path to your font file */
+}
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('/static/resources/helvetica-neue-5/HelveticaNeueMedium.otf') format('truetype'); /* Replace 'path/to/font.ttf' with the actual path to your font file */
+}
+
 .container {
-    width: 90%;
-    margin: 0 auto;
-    height: 8vh;
+    width: 90% !important;
+    margin: 0 auto !important;
+    /* height: 8vh; */
 }
  
 header {
-    border-top: 5px solid rgb(75,75,75);
-    background: rgb(243, 243, 243);
-    border-bottom: 1px solid black;
+    border-top: 5px solid rgb(75,75,75) !important;
+    background: rgb(243, 243, 243) !important;
+    border-bottom: 1px solid black !important;
+    font-family: 'HelvecticaNeue', sans-serif !important;
 }
  
 /*::after creates a pseudo element that is the last child of the selected element
@@ -16,58 +27,59 @@ header {
 
 header::after {
     content: ''; /*responsible for allowing smooth navbar with no bunching*/
-    display: table;
-    clear: both;    
+    display: table !important;
+    clear: both !important;    
 }
 
 /*all navbar css*/
-nav {
-    float: right;
-}
+.navbar1 {
+    float: right !important;
+    font-family: 'HelvecticaNeue', sans-serif !important;
+} 
  
-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+.navbar1 ul {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
 }
 
-nav li {
-    display: inline-block; /*puts a little space between them allows for text allignment*/
-    margin-left: 45px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.navbar1 li {
+    display: inline-block !important; /*puts a little space between them allows for text allignment*/
+    margin-left: 45px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
      /*specific to the animation (can be changed)*/
-    position: relative; /*important that its relative*/
+    position: relative !important; /*important that its relative*/
 }
 
-nav a {
-    color: rgb(100, 100, 100);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 14px;
+.navbar1 a {
+    color: rgb(100, 100, 100) !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    font-size: 15px !important;
 }
 
-nav a:hover {
-    color: rgb(0,0,0);
+.navbar1 a:hover {
+    color: rgb(0,0,0) !important;
     /* text-decoration: underline; */
     /* border-bottom: 10px solid black; */
     /* font-weight: bold; */ /*do not use this until we find a way to correct navbar shift*/
 }
 
-nav a::after {
-    content: ''; /*no content in there*/
-    display: block;
-    height: 3px;
-    width: 100%; 
-    background-color: rgb(0,0,0);
+.navbar1 a::after {
+    content: '' !important; /*no content in there*/
+    display: block !important;
+    height: 3px !important;
+    width: 100% !important; 
+    background-color: rgb(0,0,0) !important;
 
-    position: absolute;
-    bottom: 0;
-    width: 0%;
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 0% !important;
 
-    transition: all ease-in-out 250ms;
+    transition: all ease-in-out 250ms !important;
 }
 
-nav a:hover::after {
-    width: 100%;
+.navbar1 a:hover::after {
+    width: 100% !important;
 }

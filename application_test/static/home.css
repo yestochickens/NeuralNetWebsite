@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url('static/resources/Roboto/Roboto-Medium.ttf') format('truetype'); /* Replace 'path/to/font.ttf' with the actual path to your font file */
+}
+
 body {
     margin: 0;
     background-color: rgb(255, 255, 255);
@@ -11,6 +16,7 @@ body {
     padding-top: 25px;
     padding-bottom: 10px;
     border-bottom: 1px solid black;
+    font-family: 'RobotoSlab', sans-serif;
 }
 
 .separationBar {
@@ -31,6 +37,7 @@ body {
     font-size: 18px;
     line-height: 27px;
     color: rgb(0,0,0); /* Sets the text color of the caption */
+    font-family: 'RobotoSlab', sans-serif;
 }
 
 .mainImage {
@@ -61,6 +68,7 @@ figcaption {
     font-style: italic; /* Makes the caption text italic */
     padding: 0px; /* Adds padding inside the caption */
     border-radius: 5px; /* Rounds the corners of the caption background */
+    font-family: 'RobotoSlab', sans-serif;
 }
 
 .mainText {

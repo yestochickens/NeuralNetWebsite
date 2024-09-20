@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     addCanvas();
     setupDrawingListeners();
+    document.querySelector(".clear").addEventListener("click", clear);
+
 });
 
 function addCanvas() {
@@ -29,9 +31,6 @@ function setupDrawingListeners() {
 
     function handleMouseMove(event) {
         if (!mouseDown) return;
-        
-        getData()
-
         const rect = canvas.getBoundingClientRect();
         const mouseX = event.clientX - rect.left;
         const mouseY = event.clientY - rect.top;
@@ -86,6 +85,7 @@ function setupDrawingListeners() {
         mouseDown = false;
         lastMouseX = null;
         lastMouseY = null;
+        getData();
     });
 
     canvas.addEventListener("mouseleave", () => {

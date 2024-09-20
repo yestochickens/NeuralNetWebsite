@@ -68,22 +68,48 @@ body {
     font-size: 18px;
 }
 
-.learn-more-btn a {
-    text-decoration: none;
-    color: white;
-}
-
-.learn-more-btn {
+.btn-demo {
+    display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    color: white;
     font-size: 16px;
-    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
     margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
 }
 
-.learn-more-btn:hover {
+
+.clear {
+    background-color: #ff0000;
+}
+
+.clear:hover {
+    background-color: #ff2b2b;
+    transform: scale(1.05);
+}
+
+/* Learn more button (blue) */
+.learn-more {
+    background-color: #007bff;
+}
+
+.learn-more:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Optional: Style anchor tag within learn-more button */
+.learn-more a {
+    color: white;
+    text-decoration: none;
+    display: block; /* Ensures full button is clickable */
+}
+
+.learn-more a:hover {
+    text-decoration: none;
 }

@@ -8,7 +8,7 @@
     src: url('/static/resources/helvetica-neue-5/HelveticaNeueMedium.otf') format('truetype'); /* Replace 'path/to/font.ttf' with the actual path to your font file */
 }
 
-.container {
+.navContainer {
     width: 90% !important;
     margin: 0 auto !important;
     /* height: 8vh; */
@@ -32,18 +32,18 @@ header::after {
 }
 
 /*all navbar css*/
-.navbar1 {
+nav {
     float: right !important;
     font-family: 'HelvecticaNeue', sans-serif !important;
 } 
  
-.navbar1 ul {
+nav ul {
     padding: 0 !important;
     margin: 0 !important;
     list-style: none !important;
 }
 
-.navbar1 li {
+nav li {
     display: inline-block !important; /*puts a little space between them allows for text allignment*/
     margin-left: 45px !important;
     padding-top: 20px !important;
@@ -52,21 +52,21 @@ header::after {
     position: relative !important; /*important that its relative*/
 }
 
-.navbar1 a {
+nav a {
     color: rgb(100, 100, 100) !important;
     text-decoration: none !important;
     text-transform: uppercase !important;
     font-size: 15px !important;
 }
 
-.navbar1 a:hover {
+nav a:hover {
     color: rgb(0,0,0) !important;
     /* text-decoration: underline; */
     /* border-bottom: 10px solid black; */
     /* font-weight: bold; */ /*do not use this until we find a way to correct navbar shift*/
 }
 
-.navbar1 a::after {
+nav a::after {
     content: '' !important; /*no content in there*/
     display: block !important;
     height: 3px !important;
@@ -80,6 +80,6 @@ header::after {
     transition: all ease-in-out 250ms !important;
 }
 
-.navbar1 a:hover::after {
+nav a:hover::after {
     width: 100% !important;
 }

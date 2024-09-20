@@ -29,6 +29,8 @@ function setupDrawingListeners() {
 
     function handleMouseMove(event) {
         if (!mouseDown) return;
+        
+        getData()
 
         const rect = canvas.getBoundingClientRect();
         const mouseX = event.clientX - rect.left;
@@ -97,18 +99,30 @@ function setupDrawingListeners() {
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "c") {
-        clearColors();
+        clear();
     }
     if (event.key === "g") {
         getData();
     }
 });
 
-function clearColors() {
+function clear() {
     const cells = document.querySelectorAll(".cell");
     cells.forEach(cell => {
         cell.style.backgroundColor = 'rgb(255, 255, 255)';
     });
+    document.getElementById('computer-prediction').innerHTML = 'Computer Prediction: ';
+
+    const probContainer = document.querySelector('.computer-percentage');
+
+    probContainer.innerHTML = '';
+
+    for (let i = 0; i < 10; i++) {
+        const probElement = document.createElement('p');
+        probElement.id = 'prob';
+        probElement.textContent = `${i}: `;
+        probContainer.appendChild(probElement);
+    }
 }
 
 function getData() {
@@ -129,16 +143,16 @@ function getData() {
     .then(response => response.json())
     .then(data => {
         document.getElementById("computer-prediction").textContent = `Computer Prediction: ${data.pred}`;
-         const probContainer = document.querySelector('.computer-percentage');
+        const probContainer = document.querySelector('.computer-percentage');
 
-         probContainer.innerHTML = '';
+        probContainer.innerHTML = '';
 
-         for (let i = 0; i < data.prob[0].length; i++) {
+        for (let i = 0; i < data.prob[0].length; i++) {
             const probElement = document.createElement('p');
             probElement.id = 'prob';
             probElement.textContent = `${i}: ${(data.prob[0][i] * 100).toFixed(2)}%`;
             probContainer.appendChild(probElement);
-         }
+        }
     })
     .catch(error => {
         console.error('Error:', error);

@@ -1,1 +1,1 @@
-$("#AdamAccordion").load("accordions/Optimizers/AdamAccordion.html");
+$("#AdamAccordion").load("static/Accordions/Optimizers/AdamAccordion.html");

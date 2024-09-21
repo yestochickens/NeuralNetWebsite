@@ -1,1 +1,1 @@
-$("#XavierAccordion").load("accordions/Initializers/XavierAccordion.html");
+$("#XavierAccordion").load("static/Accordions/Initializers/XavierAccordion.html");

@@ -1,25 +1,54 @@
-<script type="text/javascript" src="static\Accordions\Layout\layoutAccordion.js"></script>
-<div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild5">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild5" aria-expanded="true" aria-controls="collapseChild5">
-            Notation
-        </button>
-    </h2>
-    <div id="collapseChild5" class="accordion-collapse collapse" aria-labelledby="headingChild5">
-        <div class="accordion-body">
-            Content for Child Accordion Item #1.
-        </div>
-    </div>
-</div>
-<div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild6">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild6" aria-expanded="false" aria-controls="collapseChild6">
-            Operator Reference
-        </button>
-    </h2>
-    <div id="collapseChild6" class="accordion-collapse collapse" aria-labelledby="headingChild6">
-        <div class="accordion-body">
-            Content for Child Accordion Item #2.
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Math Documentation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" src="static\Accordions\Layout\layoutAccordion.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <p>
+        This documentation attempts to provide thorough definitions and proof of the math behind <strong>machine learning</strong>. For every part of this documentation (when applicable), the math will first be documented with <strong>variable notation</strong> and <strong>standard operators</strong> (ex. 
+        <span>\(\mathbf{A} \mathbf{B}\)</span>), then with <strong>expanded matrices and vectors</strong> and <strong>standard operators</strong> (ex.
+    </p>
+
+    <p>
+        <span>
+        \[
+        \begin{bmatrix}
+        a_{0, 0} & \cdots & a_{0, n} \\
+        \vdots & \ddots & \vdots \\
+        a_{m, 0} & \cdots & a_{m, n}
+        \end{bmatrix}
+        \begin{bmatrix}
+        b_{0, 0} & \cdots & b_{0, o} \\
+        \vdots & \ddots & \vdots \\
+        b_{n, 0} & \cdots & b_{n, o}
+        \end{bmatrix}
+        \]
+        </span>
+    </p>
+
+    <p>
+        ), then with <strong>expanded matrices and vectors</strong> and <strong>linear operators</strong> (ex.
+    </p>
+
+    <p>
+        <span>
+        \[
+        \begin{bmatrix}
+        \sum_{i=0}^n \left( a_{0, i} \cdot b_{i, 0} \right) & \cdots & \sum_{i=0}^n \left( a_{0, i} \cdot b_{i, o} \right) \\
+        \vdots & \ddots & \vdots \\
+        \sum_{i=0}^n \left( a_{m, i} \cdot b_{i, 0} \right) & \cdots & \sum_{i=0}^n \left( a_{m, i} \cdot b_{i, o} \right)
+        \end{bmatrix}
+        \]
+        </span>
+    </p>
+
+    <p>After the definitions, proofs of each derived definition will be provided if applicable.</p>
+
+</body>
+</html>
+

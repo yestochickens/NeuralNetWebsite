@@ -1,4 +1,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+    $("#adamMethodAccordion").load("static/Accordions/Optimizers/adamMethodAccordion.html");
+</script>
+<p>desc</p>
 <div class="accordion-item">
     <h2 class="accordion-header" id="headingChild20">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild20" aria-expanded="true" aria-controls="collapseChild20">
@@ -7,109 +11,99 @@
     </h2>
     <div id="collapseChild20" class="accordion-collapse collapse" aria-labelledby="headingChild20">
         <div class="accordion-body">
-            <p>
-                \[
-                \alpha = 1 \times 10^{-3}
-                \]
-            </p>
-        
-            <p>
-                \[
-                \lambda = 0
-                \]
-            </p>
-        
-            <p>
-                \[
-                \beta_1 = 0.9
-                \]
-            </p>
-        
-            <p>
-                \[
-                \beta_2 = 0.999
-                \]
-            </p>
-        
-            <p>
-                \[
-                \epsilon = 1 \times 10^{-8}
-                \]
-            </p>
-        
-            <p>
-                \[
-                \text{ams} = 0
-                \]
-            </p>
+            <p>\[\alpha = 1 \times 10^{-3}\]</p>
+            <p>\[\lambda = 0\]</p>
+            <p>\[\beta_1 = 0.9\]</p>
+            <p>\[\beta_2 = 0.999\]</p>
+            <p>\[\epsilon^{[\mathrm{s}]} = 1 \times 10^{-8}\]</p>
+            <p>\[ams^{\mathrm{[s]}} = \mathrm{True}\]</p>            
         </div>
     </div>
 </div>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild20">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild20" aria-expanded="true" aria-controls="collapseChild20">
+    <h2 class="accordion-header" id="headingChild21">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
             Initialized Memory
         </button>
     </h2>
-    <div id="collapseChild20" class="accordion-collapse collapse" aria-labelledby="headingChild20">
+    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
         <div class="accordion-body">
             <p>
+                First Moment
                 \[
-                \iota = 1
+                \mathbf{\Psi_{P_\mathit{0}}^{\mathrm{[l]}}}=\mathbf{0}_{m \times n}=\begin{bmatrix}0 & \cdots & 0 \\\vdots & \ddots & \vdots \\0 & \cdots & 0\end{bmatrix}
                 \]
             </p>
-        
             <p>
+                Second Moment
                 \[
-                \delta_0 = \mathbf{0}_{m \times n}
+                \mathbf{\Omega_{P_\mathit{0}}^{\mathrm{[l]}}}=\mathbf{0}_{m \times n}=\begin{bmatrix}0 & \cdots & 0 \\\vdots & \ddots & \vdots \\0 & \cdots & 0\end{bmatrix}
                 \]
             </p>
-        
             <p>
+                AMSGrad second moment
                 \[
-                \upsilon_0 = \mathbf{0}_{m \times n}
-                \]
-            </p>
-        
-            <p>
-                \[
-                \widehat{\upsilon_{max}} = \mathbf{0}_{m \times n}
+                \widehat{\mathbf{\Omega_{P_\mathrm{max}}^{\mathrm{[l]}}}}=\mathbf{0}_{m \times n}=\begin{bmatrix}0 & \cdots & 0 \\\vdots & \ddots & \vdots \\0 & \cdots & 0\end{bmatrix}
                 \]
             </p>
         </div>
     </div>
 </div>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild20">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild20" aria-expanded="true" aria-controls="collapseChild20">
+    <h2 class="accordion-header" id="headingChild22">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild22" aria-expanded="true" aria-controls="collapseChild22">
             Variables
         </button>
     </h2>
-    <div id="collapseChild20" class="accordion-collapse collapse" aria-labelledby="headingChild20">
+    <div id="collapseChild22" class="accordion-collapse collapse" aria-labelledby="headingChild22">
         <div class="accordion-body">
             <p>
-                Displayed Matrix:
+                Trainable parameters
                 \[
-                \mathbf{\Theta} =
+                \mathbf{\Theta_P^{\mathrm{[l]}}}
+                =
                 \begin{bmatrix}
-                \theta_{0, 0} & \cdots & \theta_{0, n} \\
-                \vdots & \ddots & \vdots \\
-                \theta_{m, 0} & \cdots & \theta_{m, n} \\
+                \theta_{\mathrm{p}_{0, 0}}^{\mathrm{[l]}} &
+                \cdots &
+                \theta_{\mathrm{p}_{0, n}}^{\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{m, 0}}^{\mathrm{[l]}} &
+                \cdots &
+                \theta_{\mathrm{p}_{m, n}}^{\mathrm{[l]}} \\
                 \end{bmatrix}
                 \]
             </p>
-        
             <p>
-                Displayed Gradient:
+                Calculated gradients
                 \[
-                \mathbf{\nabla_{\Theta} L} =
+                \nabla_{\mathbf{\Theta_P^{\mathrm{[l]}}}}\mathbf{L} =
                 \begin{bmatrix}
-                \frac{\partial \mathbf{L}}{\partial \theta_{0, 0}} & \cdots & \frac{\partial \mathbf{L}}{\partial \theta_{0, n}} \\
-                \vdots & \ddots & \vdots \\
-                \frac{\partial \mathbf{L}}{\partial \theta_{m, 0}} & \cdots & \frac{\partial \mathbf{L}}{\partial \theta_{m, n}} \\
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{0, 0}}}\mathbf{L} &
+                \cdots &
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{0, n}}}\mathbf{L} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{m, 0}}}\mathbf{L} &
+                \cdots &
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{m, n}}}\mathbf{L} \\
                 \end{bmatrix}
                 \]
             </p>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild23">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild23" aria-expanded="true" aria-controls="collapseChild23">
+            Method
+        </button>
+    </h2>
+    <div id="collapseChild23" class="accordion-collapse collapse" aria-labelledby="headingChild23">
+        <div class="accordion-body">
+            <div id="adamMethodAccordion"></div>
         </div>
     </div>
 </div>

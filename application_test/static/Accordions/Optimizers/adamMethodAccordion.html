@@ -1,0 +1,580 @@
+<script type="text/javascript" src="Accordions\Network\networkAccordion.js"></script>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild1" aria-expanded="true" aria-controls="collapseChild1">
+            Variable Notation
+        </button>
+    </h2>
+    <div id="collapseChild1" class="accordion-collapse collapse" aria-labelledby="headingChild1">
+        <div class="accordion-body">
+            <p>
+                L2 regularization
+                \[\mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}} = \nabla_{\mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}}\mathbf{L}_\iota - \lambda^\mathrm{[s]} \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}\]
+            </p>
+            <p>
+                Calculation of the zero-biased first moment estimate (mean)
+                \[\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta_1^\mathrm{[s]} \mathbf{\Psi_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta_1^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}\]
+            </p>
+            <p>
+                Calculation of the zero-biased second raw moment estimate (uncentered variance)
+                \[\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta_2^\mathrm{[s]} \mathbf{\Omega_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta_2^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}^{\circ 2}\]
+            </p>
+            <p>
+                Zero-bias correction on moments
+                \[\widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}}{1 - \beta_1^{\mathrm{[s]}^\iota}}\]
+                \[\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}{1 - \beta_2^{\mathrm{[s]}^\iota}}\]
+            </p>
+            <p>
+                AMSGrad Variant
+
+                \[\widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} \leftarrow \mathrm{max} \left( \widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}, \widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} \right)\]
+
+                \[\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} \leftarrow
+                \begin{cases}
+                \widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} & \text{if } ams^{\mathrm{[s]}} \\
+                \widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} & \text{otherwise}
+                \end{cases}\]
+            </p>
+            <p>
+                Learnable parameter optimization
+
+                \[\mathbf{\Theta_{P_\mathit{\iota}}^\mathrm{[l]}} = \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}} - \alpha^{\mathrm{[s]}} \widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} \oslash \left( \sqrt{\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}} + \epsilon^{\mathrm{[s]}} \right)\]
+            </p>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild2">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild2" aria-expanded="false" aria-controls="collapseChild2">
+            Matrix Notation
+        </button>
+    </h2>
+    <div id="collapseChild2" class="accordion-collapse collapse" aria-labelledby="headingChild2">
+        <div class="accordion-body">
+            <p>
+                L2 regularization
+                \[\begin{bmatrix}
+                \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota &
+                \cdots &
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota &
+                \cdots &
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota \\
+                \end{bmatrix}
+                -
+                \lambda^\mathrm{[s]} \begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}\]
+            </p>
+            <p>
+                Calculation of the zero-biased first moment estimate (mean)
+                \[\begin{bmatrix}
+                \psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \psi_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \psi_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \psi_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \beta_1^\mathrm{[s]} \begin{bmatrix}
+                \psi_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \psi_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \psi_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \psi_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                +
+                \left( 1 - \beta_1^\mathrm{[s]} \right) \begin{bmatrix}
+                \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}\]
+            </p>
+            <p>
+                Calculation of the zero-biased second raw moment estimate (uncentered variance)
+
+                \[\begin{bmatrix}
+                \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \beta_2^\mathrm{[s]} \begin{bmatrix}
+                \omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                +
+                \left( 1 - \beta_2^\mathrm{[s]} \right) \begin{bmatrix}
+                \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}^{\circ 2}\]
+            </p>
+            <p>
+                Zero-bias correction on moments
+
+                \[\begin{bmatrix}
+                \widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\psi_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\psi_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\psi_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                =
+                \frac{1}{1 - \beta_1^{\mathrm{[s]}^{\iota}}} \begin{bmatrix}
+                \psi_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \psi_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \psi_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \psi_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}\]
+                
+                \[\begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                =
+                \frac{1}{1 - \beta_2^{\mathrm{[s]}^{\iota}}} \begin{bmatrix}
+                \omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}\]
+            </p>
+            <p>
+                AMSGrad Variant
+
+                \[\begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\mathrm{max}}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\mathrm{max}}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\mathrm{max}}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                \leftarrow
+                \mathrm{max} \left( \begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix},
+                \begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\mathrm{max}}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\mathrm{max}}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\mathrm{max}}}^\mathrm{[l]}} \\
+                \end{bmatrix} \right)\]
+                
+                \[\begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                \leftarrow
+                \begin{cases}
+                \begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\mathrm{max}}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\mathrm{max}}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\mathrm{max}}}^\mathrm{[l]}} \\
+                \end{bmatrix} & \text{if } ams^\mathrm{[s]} \\
+                \begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix} & \text{otherwise}
+                \end{cases}\]
+            </p>
+            <p>
+                Trainable parameter optimization
+
+                \[\begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                - \alpha^\mathrm{[s]} \begin{bmatrix}
+                \widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\psi_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\psi_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\psi_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                \oslash
+                \left( \sqrt{\begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix}} + \epsilon^\mathrm{[s]} \right)\]
+            </p>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild3">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild3" aria-expanded="false" aria-controls="collapseChild3">
+            Linear Notation
+        </button>
+    </h2>
+    <div id="collapseChild3" class="accordion-collapse collapse" aria-labelledby="headingChild3">
+        <div class="accordion-body">
+            <p>
+                L2 regularization
+            
+                \[\begin{bmatrix}
+                \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota - \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}&
+                \cdots &
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota - \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota - \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota - \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}\]
+            </p>
+            <p>
+                Calculation of the zero-biased first moment estimate (mean)
+            
+                \[\begin{bmatrix}
+                \psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \psi_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \psi_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \psi_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \beta_1^{\mathrm{[s]}} \psi_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} + \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} - \beta_1^{\mathrm{[s]}} \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}&
+                \cdots &
+                \beta_1^{\mathrm{[s]}} \psi_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} + \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} - \beta_1^{\mathrm{[s]}} \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \beta_1^{\mathrm{[s]}} \psi_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} + \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} - \beta_1^{\mathrm{[s]}} \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \beta_1^{\mathrm{[s]}} \psi_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} + \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} - \beta_1^{\mathrm{[s]}} \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}\]
+            </p>
+            <p>
+                Calculation of the zero-biased second raw moment estimate (uncentered variance)
+            
+                \[\begin{bmatrix}
+                \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \beta_2^{\mathrm{[s]}} \omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} + {\gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}^2 - \beta_2^{\mathrm{[s]}} {\gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}^2 &
+                \cdots &
+                \beta_2^{\mathrm{[s]}} \omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} + {\gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}^2 - \beta_2^{\mathrm{[s]}} {\gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}^2 \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \beta_2^{\mathrm{[s]}} \omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} + {\gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}^2 - \beta_2^{\mathrm{[s]}} {\gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}^2 &
+                \cdots &
+                \beta_2^{\mathrm{[s]}} \omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} + {\gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}^2 - \beta_2^{\mathrm{[s]}} {\gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}^2 \\
+                \end{bmatrix}\]
+            </p>
+            <p>
+                Zero-bias correction on moments
+            
+                \[\begin{bmatrix}
+                \widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\psi_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\psi_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\psi_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \frac{\psi_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} &
+                \cdots &
+                \frac{\psi_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \frac{\psi_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} &
+                \cdots &
+                \frac{\psi_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} \\
+                \end{bmatrix}\]
+
+                \[\begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \frac{\omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} &
+                \cdots &
+                \frac{\omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \frac{\omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} &
+                \cdots &
+                \frac{\omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} \\
+                \end{bmatrix}\]
+            </p>
+            <p>
+                AMSGrad Variant
+            
+                \[\begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\mathrm{max}}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\mathrm{max}}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\mathrm{max}}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                \leftarrow
+                \begin{bmatrix}
+                \mathrm{max}\left( \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}, \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} \right) &
+                \cdots &
+                \mathrm{max}\left( \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}, \widehat{\omega_{\mathrm{p}_{{0, n}_\mathrm{max}}}^\mathrm{[l]}} \right) \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \mathrm{max}\left( \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}, \widehat{\omega_{\mathrm{p}_{{m, 0}_\mathrm{max}}}^\mathrm{[l]}} \right) &
+                \cdots &
+                \mathrm{max}\left( \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}, \widehat{\omega_{\mathrm{p}_{{m, n}_\mathrm{max}}}^\mathrm{[l]}} \right) \\
+                \end{bmatrix}\]
+                
+                \[\begin{bmatrix}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} &
+                \cdots &
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} \\
+                \end{bmatrix}
+                \leftarrow
+                \begin{bmatrix}
+                \begin{cases}
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} & \text{if } ams^{\mathrm{[s]}} \\
+                \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} & \text{otherwise}
+                \end{cases} &
+                \cdots &
+                \begin{cases}
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\mathrm{max}}}^\mathrm{[l]}} & \text{if } ams^{\mathrm{[s]}} \\
+                \widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} & \text{otherwise}
+                \end{cases} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \begin{cases}
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\mathrm{max}}}^\mathrm{[l]}} & \text{if } ams^{\mathrm{[s]}} \\
+                \widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} & \text{otherwise}
+                \end{cases} &
+                \cdots &
+                \begin{cases}
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\mathrm{max}}}^\mathrm{[l]}} & \text{if } ams^{\mathrm{[s]}} \\
+                \widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} & \text{otherwise}
+                \end{cases} \\
+                \end{bmatrix}\]
+            </p>
+            <p>
+                Learnable parameter optimization
+            
+                \[\begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_{\iota}}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_{\iota}}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} \\
+                \end{bmatrix}\]
+            </p>
+        </div>
+    </div>
+</div>

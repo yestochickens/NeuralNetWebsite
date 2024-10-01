@@ -34,4 +34,4 @@ def process_data():
     return jsonify(returnPictureData)
 
 if __name__ == '__main__':
-    app.run(app.run(host='45.63.57.237', port=80))
+    app.run(app.run(host='45.63.57.237', port=5001))

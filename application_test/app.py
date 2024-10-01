@@ -32,3 +32,6 @@ def process_data():
     data = request.json.get('pictureArr')
     returnPictureData = main(data)
     return jsonify(returnPictureData)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5001)

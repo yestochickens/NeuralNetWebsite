@@ -113,3 +113,35 @@ body {
 .learn-more a:hover {
     text-decoration: none;
 }
+
+.computer-percentage {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.bar-label {
+    margin-right: 10px;
+    flex: 0 0 auto;
+}
+
+.bar {
+    height: 20px;
+    background-color: #00b61e;
+    transition: width 0.5s;
+    position: relative;
+    margin-right: 10px;
+}
+
+.percentage-label {
+    margin-left: auto;
+    white-space: nowrap;
+}
+

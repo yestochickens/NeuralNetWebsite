@@ -22,3 +22,9 @@
     white-space: normal;
     max-height: none;
 }
+
+
+.accordion-body p {
+    overflow-y: hidden !important;
+    overflow-x: auto;
+}

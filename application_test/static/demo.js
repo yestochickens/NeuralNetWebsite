@@ -105,23 +105,31 @@ document.addEventListener("keydown", (event) => {
         getData();
     }
 });
-
 function clear() {
     const cells = document.querySelectorAll(".cell");
     cells.forEach(cell => {
         cell.style.backgroundColor = 'rgb(255, 255, 255)';
     });
     document.getElementById('computer-prediction').innerHTML = 'Computer Prediction: ';
-
+    
     const probContainer = document.querySelector('.computer-percentage');
-
     probContainer.innerHTML = '';
 
     for (let i = 0; i < 10; i++) {
-        const probElement = document.createElement('p');
-        probElement.id = 'prob';
-        probElement.textContent = `${i}: `;
-        probContainer.appendChild(probElement);
+        const barContainer = document.createElement('div');
+        barContainer.classList.add('bar-container');
+
+        const barLabel = document.createElement('span');
+        barLabel.classList.add('bar-label');
+        barLabel.textContent = `${i}: `;
+
+        const bar = document.createElement('div');
+        bar.classList.add('bar');
+        bar.style.width = '0%';
+
+        barContainer.appendChild(barLabel);
+        barContainer.appendChild(bar);
+        probContainer.appendChild(barContainer);
     }
 }
 
@@ -147,14 +155,45 @@ function getData() {
 
         probContainer.innerHTML = '';
 
-        for (let i = 0; i < data.prob[0].length; i++) {
-            const probElement = document.createElement('p');
-            probElement.id = 'prob';
-            probElement.textContent = `${i}: ${(data.prob[0][i] * 100).toFixed(2)}%`;
-            probContainer.appendChild(probElement);
+        let probabilities = data.prob[0];
+
+        let scaledProbs = scaleProbabilities(probabilities);
+
+        for (let i = 0; i < scaledProbs.length; i++) {
+            const barContainer = document.createElement('div');
+            barContainer.classList.add('bar-container');
+
+            const barLabel = document.createElement('span');
+            barLabel.classList.add('bar-label');
+            barLabel.textContent = `${i}: `;
+
+            const bar = document.createElement('div');
+            bar.classList.add('bar');
+            bar.style.width = `${scaledProbs[i]}%`;
+
+            const percentageLabel = document.createElement('span');
+            percentageLabel.classList.add('percentage-label');
+            percentageLabel.textContent = `${(probabilities[i] * 100).toFixed(2)}%`;
+
+            barContainer.appendChild(barLabel);
+            barContainer.appendChild(bar);
+            barContainer.appendChild(percentageLabel);
+            probContainer.appendChild(barContainer);
         }
     })
     .catch(error => {
         console.error('Error:', error);
+    });
+}
+
+function scaleProbabilities(probs) {
+    const minBarWidth = 15;
+    const maxBarWidth = 100;
+
+    const minProb = Math.min(...probs);
+    const maxProb = Math.max(...probs);
+
+    return probs.map(prob => {
+        return minBarWidth + ((prob - minProb) / (maxProb - minProb)) * (maxBarWidth - minBarWidth);
     });
 }

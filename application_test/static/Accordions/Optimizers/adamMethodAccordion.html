@@ -8,24 +8,24 @@
     <div id="collapseChild1" class="accordion-collapse collapse" aria-labelledby="headingChild1">
         <div class="accordion-body">
             <p>
-                <h4>L2 regularization</h4>
+                L2 regularization
                 \[\mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}} = \nabla_{\mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}}\mathbf{L}_\iota - \lambda^\mathrm{[s]} \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}\]
             </p>
             <p>
-                <h4>Calculation of the zero-biased first moment estimate (mean)</h4>
+                Calculation of the zero-biased first moment estimate (mean)
                 \[\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta_1^\mathrm{[s]} \mathbf{\Psi_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta_1^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}\]
             </p>
             <p>
-                <h4>Calculation of the zero-biased second raw moment estimate (uncentered variance)</h4>
+                Calculation of the zero-biased second raw moment estimate (uncentered variance)
                 \[\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta_2^\mathrm{[s]} \mathbf{\Omega_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta_2^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}^{\circ 2}\]
             </p>
             <p>
-                <h4>Zero-bias correction on moments</h4>
+                Zero-bias correction on moments
                 \[\widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}}{1 - \beta_1^{\mathrm{[s]}^\iota}}\]
                 \[\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}{1 - \beta_2^{\mathrm{[s]}^\iota}}\]
             </p>
             <p>
-                <h4>AMSGrad Variant</h4>
+                AMSGrad Variant
 
                 \[\widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} \leftarrow \mathrm{max} \left( \widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}, \widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} \right)\]
 
@@ -36,7 +36,7 @@
                 \end{cases}\]
             </p>
             <p>
-                <h4>Learnable parameter optimization</h4>
+                Learnable parameter optimization
 
                 \[\mathbf{\Theta_{P_\mathit{\iota}}^\mathrm{[l]}} = \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}} - \alpha^{\mathrm{[s]}} \widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} \oslash \left( \sqrt{\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}} + \epsilon^{\mathrm{[s]}} \right)\]
             </p>
@@ -52,7 +52,7 @@
     <div id="collapseChild2" class="accordion-collapse collapse" aria-labelledby="headingChild2">
         <div class="accordion-body">
             <p>
-                <h4>L2 regularization</h4>
+                L2 regularization
                 \[\begin{bmatrix}
                 \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
@@ -90,7 +90,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                <h4>Calculation of the zero-biased first moment estimate (mean)</h4>
+                Calculation of the zero-biased first moment estimate (mean)
                 \[\begin{bmatrix}
                 \psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
@@ -128,7 +128,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                <h4>Calculation of the zero-biased second raw moment estimate (uncentered variance)</h4>
+                Calculation of the zero-biased second raw moment estimate (uncentered variance)
 
                 \[\begin{bmatrix}
                 \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
@@ -167,7 +167,7 @@
                 \end{bmatrix}^{\circ 2}\]
             </p>
             <p>
-                <h4>Zero-bias correction on moments</h4>
+                Zero-bias correction on moments
 
                 \[\begin{bmatrix}
                 \widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
@@ -218,7 +218,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                <h4>AMSGrad Variant</h4>
+                AMSGrad Variant
 
                 \[\begin{bmatrix}
                 \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} &
@@ -293,7 +293,7 @@
                 \end{cases}\]
             </p>
             <p>
-                <h4>Trainable parameter optimization</h4>
+                Trainable parameter optimization
 
                 \[\begin{bmatrix}
                 \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
@@ -354,7 +354,7 @@
     <div id="collapseChild3" class="accordion-collapse collapse" aria-labelledby="headingChild3">
         <div class="accordion-body">
             <p>
-                <h4>L2 regularization</h4>
+                L2 regularization
             
                 \[\begin{bmatrix}
                 \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
@@ -381,7 +381,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                <h4>Calculation of the zero-biased first moment estimate (mean)</h4>
+                Calculation of the zero-biased first moment estimate (mean)
             
                 \[\begin{bmatrix}
                 \psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
@@ -408,7 +408,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                <h4>Calculation of the zero-biased second raw moment estimate (uncentered variance)</h4>
+                Calculation of the zero-biased second raw moment estimate (uncentered variance)
             
                 \[\begin{bmatrix}
                 \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
@@ -435,7 +435,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                <h4>Zero-bias correction on moments</h4>
+                Zero-bias correction on moments
             
                 \[\begin{bmatrix}
                 \widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
@@ -486,7 +486,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                <h4>AMSGrad Variant</h4>
+                AMSGrad Variant
             
                 \[\begin{bmatrix}
                 \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} &
@@ -549,7 +549,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                <h4>Learnable parameter optimization</h4>
+                Learnable parameter optimization
             
                 \[\begin{bmatrix}
                 \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &

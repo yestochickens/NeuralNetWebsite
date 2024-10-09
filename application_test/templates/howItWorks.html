@@ -16,15 +16,17 @@
   </head>
   <body>
     
-    
-
     <script src="{{ url_for('static', filename='howItWorks.js') }}"></script>
     <div id="navbar"></div>
 
     <div class="titleText">Creating Neural Networks from Scratch</div>  
-    
+    <div class="mainDisplay"> 
+      <img src="/static/resources/HowItWorksReferecnes/MIT-Neural-Networks-01_0.gif" alt="image" class="mainDisplay" id="coverImage">
+    </div>
     <div class = "mainDisplay" id = "howItWorksInformationText">
       <p id="p1"></p>
+      <p id="p2"></p>
+      <p id="p3"></p>
     </div>
     <script>
       fetch("static/resources/text/homePage.json")
@@ -32,29 +34,24 @@
           .then(data => {
               document.getElementById('p1').innerText = data.p1;
               document.getElementById('p2').innerText = data.p2;
-              // document.getElementById('p3').innerText = data.p3;
-              // document.getElementById('p4').innerText = data.p4;
-              // document.getElementById('p5').innerText = data.p5;            
+              document.getElementById('p3').innerText = data.p3;    
           })
           .catch(error => console.error('Error fetching JSON:', error));
     </script>
 
+    <!-- feedforward and classification -->
     <div class= "mainDisplay"> 
       <div id="carouselExample" class="carousel slide" class="mainDisplay">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="assets/mason.png" class="d-block w-100 slide" alt="First Slide">
+            <img src="/static/resources/HowItWorksReferecnes/firstSlide/feedForward.png" class="d-block w-100 slide" alt="First Slide">
           </div>
           <div class="carousel-item">
-            <img src="assets/mason.png" class="d-block w-100 slide" alt="Second Slide">
-          </div>
-          <div class="carousel-item">
-            <img src="assets/mason.png" class="d-block w-100 slide" alt="Third Slide">
+            <img src="/static/resources/HowItWorksReferecnes/firstSlide/classification.png" class="d-block w-100 slide" alt="Second Slide">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -68,5 +65,125 @@
       </div>
     </div>
     
+
+    <!-- display text -->
+    <div class = "mainDisplay" id = "howItWorksInformationText">
+      <p id="p4"></p>
+      <p id="p5"></p>
+      <p id="p6"></p>
+    </div>
+    <script>
+      fetch("static/resources/text/homePage.json")
+          .then(response => response.json())
+          .then(data => {
+              document.getElementById('p4').innerText = data.p4;
+              document.getElementById('p5').innerText = data.p5;
+              document.getElementById('p6').innerText = data.p6;
+          })
+          .catch(error => console.error('Error fetching JSON:', error));
+    </script>
+
+
+    <!-- Neural Network Weights and Biases -->
+
+    <div class= "mainDisplay"> 
+      <div id="carouselExample" class="carousel slide" class="mainDisplay">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <!-- <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/resources/HowItWorksReferecnes/nodes/node1.png" class="d-block w-100 slide" alt="First Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/resources/HowItWorksReferecnes/nodes/node2.png" class="d-block w-100 slide" alt="Second Slide">
+          </div>
+          <!-- <div class="carousel-item">
+            <img src="/static/resources/HowItWorksReferecnes/nodes/node3.png" class="d-block w-100 slide" alt="Third Slide">
+          </div> -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+
+
+    <div class = "mainDisplay" id = "howItWorksInformationText">
+      <p id="p7"></p>
+      <p id="p8"></p>
+      <p id="p9"></p>
+      <p id="p10"></p>
+      <p id="p11"></p>
+    </div>
+    <script>
+      fetch("static/resources/text/homePage.json")
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('p7').innerText = data.p7;
+            document.getElementById('p8').innerText = data.p8;
+            document.getElementById('p9').innerText = data.p9;
+            document.getElementById('p10').innerText = data.p10;
+            document.getElementById('p11').innerText = data.p11;
+          })
+          .catch(error => console.error('Error fetching JSON:', error));
+    </script>
+
+
+
+    <!-- display of the Neural Networks function -->
+    <div class= "mainDisplay"> 
+      <div id="carouselExample" class="carousel slide" class="mainDisplay">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/resources/HowItWorksReferecnes/activationSlide/simpleNN.png" class="d-block w-100 slide" alt="First Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/resources/HowItWorksReferecnes/activationSlide/1.png" class="d-block w-100 slide" alt="Second Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/resources/HowItWorksReferecnes/activationSlide/2.png" class="d-block w-100 slide" alt="Third Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/resources/HowItWorksReferecnes/activationSlide/3.png" class="d-block w-100 slide" alt="First Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/resources/HowItWorksReferecnes/activationSlide/4.png" class="d-block w-100 slide" alt="First Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/resources/HowItWorksReferecnes/activationSlide/5.png" class="d-block w-100 slide" alt="First Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/resources/HowItWorksReferecnes/activationSlide/6.png" class="d-block w-100 slide" alt="First Slide">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
   </body>
 </html>

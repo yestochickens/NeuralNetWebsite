@@ -1,0 +1,30 @@
+.accordion-button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.title {
+    padding-bottom: 0px !important;
+    padding-top: 36px !important;
+}
+
+.container {
+    padding-top: 0px !important;
+}
+
+.accordion-body {
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: .5vw;
+    line-height: .5vw;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.accordion-body h4 {
+    font-size: 1.5vh;
+    font-weight: bold;
+}

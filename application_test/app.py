@@ -19,9 +19,9 @@ def demo():
 def contact():
     return render_template('contact.html')
 
-@app.route('/docs')
-def docs():
-    return render_template('docs.html')
+@app.route('/math')
+def math():
+    return render_template('math.html')
 
 @app.route('/howItWorks')
 def howItWorks():
@@ -34,4 +34,5 @@ def process_data():
     return jsonify(returnPictureData)
 
 if __name__ == '__main__':
-    app.run(app.run(host='45.63.57.237', port=5001))
+    app.run(host='127.0.0.1', port=5001)
+    # app.run(app.run(host='45.63.57.237', port=5001))

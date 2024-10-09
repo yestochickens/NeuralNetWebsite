@@ -15,13 +15,12 @@
 .accordion-body {
     max-width: 100%;
     margin: 0 auto;
-    font-size: .5vw;
-    line-height: .5vw;
     padding: 10px;
     box-sizing: border-box;
     overflow-wrap: break-word;
     word-wrap: break-word;
     white-space: normal;
+    max-height: none;
 }
 
 .accordion-body h4 {

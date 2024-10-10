@@ -9,6 +9,17 @@
     margin-bottom: 30px;
 }
 
+.mainImage {
+    display: block;
+    text-align: left; 
+    width: 100%;
+}
+
+#coverImage {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .mainDisplay {
     width: 50%;
     display: block;
@@ -22,12 +33,19 @@
 
 .slide {
     padding: 24px, 24px, 24px, 24px !important;
-    height: 91vh;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /* height: 75vh; */
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-#howItWorksInformationText {
+#howItWorksInformationText1 {
+    font-size: 18px;
+    color: rgb(0,0,0); /* Sets the text color of the caption */
+    margin-bottom: 5px;
+    line-height: 27px;
+}
+
+#howItWorksInformationText2 {
     font-size: 18px;
     color: rgb(0,0,0); /* Sets the text color of the caption */
     margin-bottom: 5px;

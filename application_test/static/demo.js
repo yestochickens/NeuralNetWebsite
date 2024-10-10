@@ -105,9 +105,23 @@ function setupDrawingListeners() {
         const touch = event.touches[0];
         lastMouseX = touch.clientX - canvas.getBoundingClientRect().left;
         lastMouseY = touch.clientY - canvas.getBoundingClientRect().top;
+
+        event.preventDefault();
     });
 
-    canvas.addEventListener("touchmove", handleTouchMove);
+    canvas.addEventListener("touchmove", (event) => {
+        if (!mouseDown) return;
+        const touch = event.touches[0];
+        const mouseX = touch.clientX - canvas.getBoundingClientRect().left;
+        const mouseY = touch.clientY - canvas.getBoundingClientRect().top;
+
+        drawLine(lastMouseX, lastMouseY, mouseX, mouseY);
+
+        lastMouseX = mouseX;
+        lastMouseY = mouseY;
+
+        event.preventDefault();
+    });
 
     canvas.addEventListener("touchend", () => {
         mouseDown = false;

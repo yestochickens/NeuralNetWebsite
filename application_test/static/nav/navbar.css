@@ -15,7 +15,7 @@
 }
  
 header {
-    border-top: 5px solid rgb(75,75,75) !important;
+    /* border-top: 5px solid rgb(75,75,75) !important; */
     background: rgb(243, 243, 243) !important;
     border-bottom: 1px solid black !important;
     font-family: 'HelvecticaNeue', sans-serif !important;
@@ -46,8 +46,8 @@ nav ul {
 nav li {
     display: inline-block !important; /*puts a little space between them allows for text allignment*/
     margin-left: 45px !important;
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
      /*specific to the animation (can be changed)*/
     position: relative !important; /*important that its relative*/
 }

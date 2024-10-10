@@ -95,6 +95,26 @@ function setupDrawingListeners() {
     });
 
     canvas.addEventListener("mousemove", handleMouseMove);
+
+    // mobile drawing
+
+    canvas.addEventListener("touchstart", (event) => {
+        mouseDown = true;
+        lastMouseX = null;
+        lastMouseY = null;
+        const touch = event.touches[0];
+        lastMouseX = touch.clientX - canvas.getBoundingClientRect().left;
+        lastMouseY = touch.clientY - canvas.getBoundingClientRect().top;
+    });
+
+    canvas.addEventListener("touchmove", handleTouchMove);
+
+    canvas.addEventListener("touchend", () => {
+        mouseDown = false;
+        lastMouseX = null;
+        lastMouseY = null;
+        getData();
+    });
 }
 
 document.addEventListener("keydown", (event) => {
@@ -114,7 +134,7 @@ function clear() {
     
     const probContainer = document.querySelector('.computer-percentage');
     probContainer.innerHTML = '';
-
+    // clear bar graph
     for (let i = 0; i < 10; i++) {
         const barContainer = document.createElement('div');
         barContainer.classList.add('bar-container');
@@ -154,6 +174,7 @@ function getData() {
         const probContainer = document.querySelector('.computer-percentage');
 
         probContainer.innerHTML = '';
+        // set values for bar graph
 
         let probabilities = data.prob[0];
 
@@ -187,6 +208,7 @@ function getData() {
 }
 
 function scaleProbabilities(probs) {
+    // scaling for bars
     const minBarWidth = 15;
     const maxBarWidth = 100;
 

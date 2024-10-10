@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function addCanvas() {
     const canvas = document.querySelector(".drawing");
     
-    canvas.style.gridTemplateRows = `repeat(28, 20px)`;
-    canvas.style.gridTemplateColumns = `repeat(28, 20px)`;
+    canvas.style.gridTemplateRows = `repeat(28, 2.9vh)`;
+    canvas.style.gridTemplateColumns = `repeat(28, 2.9vh)`;
 
     for (let i = 0; i < (28 * 28); i++) {
         const cell = document.createElement("div");

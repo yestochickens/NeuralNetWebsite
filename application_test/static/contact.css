@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: rgb(255, 255, 255);
+  background-color:  #b5b5b5 !important;
 }   
 
 .card {
@@ -18,7 +18,26 @@ body {
 
 h1 {
   padding-top: 12px !important;
-  font-size: 24px !important;
+  font-size: 3.5vw !important;
+  text-wrap: nowrap;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1.5vw !important;
+  }
+}
+
+@media (min-width: 900px) {
+  h1 {
+    font-size: 1.7vw !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 2vw !important;
+  }
 }
 
 p {

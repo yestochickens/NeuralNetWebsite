@@ -1,0 +1,190 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+    $("#RMSPMethodAccordion").load("static/Accordions/Optimizers/RMSPMethodAccordion.html");
+</script>
+
+<p>
+    <strong>RMSP</strong>, short for Root Mean Squared Propogation, is an optimization algorithm that improves on SGD and acted as framework for Adam. With its convergence speed and computational efficieny, it is widely used.
+
+    Its <strong>square averages</strong> allows for adaptive learning rates, while <strong>momentum</strong> allows for smooother descent with a better chance to end in a global, rather than local minimum.
+</p>
+
+<!-- Accordion for Hyperparameters -->
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingHyperparams">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHyperparams" aria-expanded="true" aria-controls="collapseHyperparams">
+            Hyperparameters
+        </button>
+    </h2>
+    <div id="collapseHyperparams" class="accordion-collapse collapse" aria-labelledby="headingHyperparams">
+        <div class="accordion-body">
+            <p>
+                <strong>Learning Rate</strong>
+                \[\alpha^\mathrm{[s]} = 1 \times 10^{-3}\]
+
+                <strong>L2 Term</strong>
+                \[\lambda^\mathrm{[s]} = 0\]
+
+                <strong>Square Average Beta</strong> 
+                \[\beta^\mathrm{[s]} = 0.999\]
+
+                <strong>Momentum</strong>
+                \[\mu^\mathrm{[s]} = 0\]
+
+                <strong>Epsilon</strong>
+                \[\epsilon^\mathrm{[s]} = 1 \times 10^{-8}\]
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Accordion for Initial States -->
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingInitialStates">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInitialStates" aria-expanded="true" aria-controls="collapseInitialStates">
+            Initial States
+        </button>
+    </h2>
+    <div id="collapseInitialStates" class="accordion-collapse collapse" aria-labelledby="headingInitialStates">
+        <div class="accordion-body">
+            <!-- Compacted Notation Accordion -->
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <strong>Delta</strong>
+
+                            \[\mathbf{\Delta_{P_\mathit{0}}^\mathrm{[l]}}
+                            =
+                            \mathbf{0}_{m \times n}\]
+                            
+                            <strong>Square Average</strong>
+                            
+                            \[\mathbf{\Omega_{P_\mathit{0}}^\mathrm{[l]}}
+                            =
+                            \mathbf{0}_{m \times n}\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Delta</strong>
+
+                            \[\mathbf{\Delta_{P_\mathit{0}}^\mathrm{[l]}}
+                            =
+                            \begin{bmatrix}
+                            0 & \cdots & 0 \\
+                            \vdots & \ddots & \vdots \\
+                            0 & \cdots & 0
+                            \end{bmatrix}\]
+                            
+                            <strong>Square Average</strong>
+                            
+                            \[\mathbf{\Omega_{P_\mathit{0}}^\mathrm{[l]}}
+                            =
+                            \begin{bmatrix}
+                            0 & \cdots & 0 \\
+                            \vdots & \ddots & \vdots \\
+                            0 & \cdots & 0
+                            \end{bmatrix}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accordion for Variables -->
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingVariables">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVariables" aria-expanded="true" aria-controls="collapseVariables">
+            Variables
+        </button>
+    </h2>
+    <div id="collapseVariables" class="accordion-collapse collapse" aria-labelledby="headingVariables">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <strong>Trainable Parameters</strong>
+                            \[\mathbf{\Theta_P^\mathrm{[l]}}\]
+
+                            <strong>Gradients</strong>
+                            \[\nabla_{\mathbf{\Theta_P^\mathrm{[l]}}}\mathbf{L}\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Trainable Parameters</strong>
+                            \[\begin{bmatrix}
+                            \theta_{\mathrm{p}_{0, 0}}^\mathrm{[l]} &
+                            \cdots &
+                            \theta_{\mathrm{p}_{0, n}}^\mathrm{[l]} \\
+                            \vdots &
+                            \ddots &
+                            \vdots \\
+                            \theta_{\mathrm{p}_{m, 0}}^\mathrm{[l]} &
+                            \cdots &
+                            \theta_{\mathrm{p}_{m, n}}^\mathrm{[l]} \\
+                            \end{bmatrix}\]
+                            
+                            <strong>Gradients</strong>
+                            \[
+                            \begin{bmatrix}
+                            \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{0, 0}}}\mathbf{L} &
+                            \cdots &
+                            \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{0, n}}}\mathbf{L} \\
+                            \vdots &
+                            \ddots &
+                            \vdots \\
+                            \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{m, 0}}}\mathbf{L} &
+                            \cdots &
+                            \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{m, n}}}\mathbf{L} \\
+                            \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accordion for Method -->
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingMethod">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMethod" aria-expanded="true" aria-controls="collapseMethod">
+            Method
+        </button>
+    </h2>
+    <div id="collapseMethod" class="accordion-collapse collapse" aria-labelledby="headingMethod">
+        <div class="accordion-body">
+            <div id="RMSPMethodAccordion"></div>
+        </div>
+    </div>
+</div>

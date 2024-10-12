@@ -1,0 +1,264 @@
+<script type="text/javascript" src="Accordions\Network\networkAccordion.js"></script>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild1" aria-expanded="true" aria-controls="collapseChild1">
+            Variable Notation
+        </button>
+    </h2>
+    <div id="collapseChild1" class="accordion-collapse collapse" aria-labelledby="headingChild1">
+        <div class="accordion-body">
+            <p>
+                <strong>L2 Regularization</strong>
+                \[
+                \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}} = \nabla_{\mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}}\mathbf{L}_\iota + \lambda^\mathrm{[s]} \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}$$$$\mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}} = \nabla_{\mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}}\mathbf{L}_\iota + \lambda^\mathrm{[s]} \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}
+                \]
+
+                <strong>Square Average</strong>
+                \[
+                \mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta^\mathrm{[s]} \mathbf{\Omega_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}^{\circ 2}
+                \]
+
+                <strong>Momentum</strong>
+                \[
+                \mathbf{\Delta_{P_\mathit{\iota}}^\mathrm{[l]}}
+                =
+                \mu^\mathrm{[s]} \mathbf{\Delta_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}} \oslash \left( \sqrt{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} + \epsilon^\mathrm{[s]} \right)
+                \]
+
+                <strong>Optimization</strong>
+                \[
+                \mathbf{\Theta_{P_\mathit{\iota}}^\mathrm{[l]}} = \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}} - \alpha^{\mathrm{[s]}} \mathbf{\Delta_{P_\mathit{\iota}}^\mathrm{[l]}}
+                \]
+            </p>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild2">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild2" aria-expanded="false" aria-controls="collapseChild2">
+            Matrix Notation
+        </button>
+    </h2>
+    <div id="collapseChild2" class="accordion-collapse collapse" aria-labelledby="headingChild2">
+        <div class="accordion-body">
+            <p>
+                <strong>L2 Regularization</strong>
+                \[
+                \begin{bmatrix} \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} & \cdots & \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} & \cdots & \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\ \end{bmatrix} = \begin{bmatrix} \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota & \cdots & \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota \\ \vdots & \ddots & \vdots \\ \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota & \cdots & \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota \\ \end{bmatrix} + \lambda^\mathrm{[s]} \begin{bmatrix} \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} & \cdots & \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} & \cdots & \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\ \end{bmatrix}$$$$\begin{bmatrix} \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} & \cdots & \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} & \cdots & \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\ \end{bmatrix} = \begin{bmatrix} \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota & \cdots & \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota \\ \vdots & \ddots & \vdots \\ \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota & \cdots & \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota \\ \end{bmatrix} + \lambda^\mathrm{[s]} \begin{bmatrix} \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} & \cdots & \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} & \cdots & \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\ \end{bmatrix}
+                \]
+
+                <strong>Square Average</strong>
+                \[
+                \begin{bmatrix} \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} & \cdots & \omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} & \cdots & \omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\ \end{bmatrix} = \beta^\mathrm{[s]} \begin{bmatrix} \omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} & \cdots & \omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} & \cdots & \omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\ \end{bmatrix} + \left( 1 - \beta^\mathrm{[s]} \right) \begin{bmatrix} \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} & \cdots & \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} & \cdots & \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\ \end{bmatrix}^{\circ 2}$$$$\begin{bmatrix} \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} & \cdots & \omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} & \cdots & \omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\ \end{bmatrix} = \beta^\mathrm{[s]} \begin{bmatrix} \omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} & \cdots & \omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} & \cdots & \omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\ \end{bmatrix} + \left( 1 - \beta^\mathrm{[s]} \right) \begin{bmatrix} \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} & \cdots & \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\ \vdots & \ddots & \vdots \\ \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} & \cdots & \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\ \end{bmatrix}^{\circ 2}
+                \]
+
+                <strong>Momentum</strong>
+                \[
+                \begin{bmatrix}
+                \delta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \delta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \delta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \delta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \mu^\mathrm{[s]} \begin{bmatrix}
+                \delta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \delta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \delta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \delta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                +
+                \begin{bmatrix}
+                \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                \oslash \left(
+                \sqrt{\begin{bmatrix}
+                \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}} + \epsilon^\mathrm{[s]}
+                \right)
+                \]
+
+                <strong>Optimization</strong>
+                \[
+                \begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                -
+                \alpha^\mathrm{[s]} \begin{bmatrix}
+                \delta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \delta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \delta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \delta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                \]
+            </p>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild3">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild3" aria-expanded="false" aria-controls="collapseChild3">
+            Linear Notation
+        </button>
+    </h2>
+    <div id="collapseChild3" class="accordion-collapse collapse" aria-labelledby="headingChild3">
+        <div class="accordion-body">
+            <p>
+                <strong>L2 Regularization</strong>
+
+                \[\begin{bmatrix}
+                \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota + \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}&
+                \cdots &
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota + \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota + \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota + \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \end{bmatrix}\]
+
+                <strong>Square Average</strong>
+
+                \[\begin{bmatrix}
+                \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \beta^{\mathrm{[s]}} \omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} + {\gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}^2 - \beta^{\mathrm{[s]}} {\gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}^2 &
+                \cdots &
+                \beta^{\mathrm{[s]}} \omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} + {\gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}^2 - \beta^{\mathrm{[s]}} {\gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}^2 \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \beta^{\mathrm{[s]}} \omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} + {\gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}^2 - \beta^{\mathrm{[s]}} {\gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}^2 &
+                \cdots &
+                \beta^{\mathrm{[s]}} \omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} + {\gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}^2 - \beta^{\mathrm{[s]}} {\gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}^2 \\
+                \end{bmatrix}\]
+
+                <strong>Momentum</strong>
+
+                \[\begin{bmatrix}
+                \delta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \delta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \delta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \delta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \displaystyle \mu^\mathrm{[s]} \delta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} + \frac{\gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}{\sqrt{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} + \epsilon^\mathrm{[s]}} &
+                \cdots &
+                \displaystyle \mu^\mathrm{[s]} \delta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} + \frac{\gamma_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}{\sqrt{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}} + \epsilon^\mathrm{[s]}} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \displaystyle \mu^\mathrm{[s]} \delta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} + \frac{\gamma_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}{\sqrt{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}} + \epsilon^\mathrm{[s]}} &
+                \cdots &
+                \displaystyle \mu^\mathrm{[s]} \delta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} + \frac{\gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}{\sqrt{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}} + \epsilon^\mathrm{[s]}}
+                \end{bmatrix}\]
+
+                <strong>Optimization</strong>
+
+                \[\begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} - \alpha^\mathrm{[s]} \delta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} - \alpha^\mathrm{[s]} \delta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} - \alpha^\mathrm{[s]} \delta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} - \alpha^\mathrm{[s]} \delta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}\]
+            </p>
+        </div>
+    </div>
+</div>

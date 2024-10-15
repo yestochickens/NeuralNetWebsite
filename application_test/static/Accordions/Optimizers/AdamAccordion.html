@@ -2,50 +2,117 @@
 <script>
     $("#adamMethodAccordion").load("static/Accordions/Optimizers/adamMethodAccordion.html");
 </script>
-<p>desc</p>
+<p>
+    <strong>Adam</strong>, short for Adaptive Moment Estimation, is an optimization algorithm that combines features of the <strong>Root Mean Squared Propagation</strong> optimization algorithm and the <strong>Adaptive Gradient Algorithm</strong> optimization algorithm. Its one of the most widely used optimization algorithms due to its convergence speed and computational efficieny.
+
+    Adam's <strong>first moment</strong> results in smooth descent with optimization and helps locate global, rather than local minima. Adam's <strong>second moment</strong> estimate variance and allow for adaptive learning rates.
+
+    The <strong>zero-bias correction</strong> allows for initial few steps to be appropriately scaled. The <strong>AMSGrad</strong> variant of Adam attempts prevent convergence issues with Adam by taking the maximum observed second moment rather than the current estimated second moment.
+</p>
 <div class="accordion-item">
     <h2 class="accordion-header" id="headingChild20">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild20" aria-expanded="true" aria-controls="collapseChild20">
-            Parameters
+            Hyperparameters
         </button>
     </h2>
     <div id="collapseChild20" class="accordion-collapse collapse" aria-labelledby="headingChild20">
         <div class="accordion-body">
-            <p>\[\alpha = 1 \times 10^{-3}\]</p>
-            <p>\[\lambda = 0\]</p>
-            <p>\[\beta_1 = 0.9\]</p>
-            <p>\[\beta_2 = 0.999\]</p>
-            <p>\[\epsilon^{[\mathrm{s}]} = 1 \times 10^{-8}\]</p>
-            <p>\[ams^{\mathrm{[s]}} = \mathrm{True}\]</p>            
+            <strong>Learning Rate</strong>
+            \[\alpha^\mathrm{[s]} = 1 \times 10^{-3}\]
+            
+            <strong>L2 Term</strong>
+            $$\lambda^\mathrm{[s]} = 0\]
+            
+            <strong>First Moment Beta</strong>
+            $$\beta_1^\mathrm{[s]} = 0.9\]
+            
+            <strong>Second Moment Beta</strong>
+            \[\beta_2^\mathrm{[s]} = 0.999\]
+            
+            <strong>Epsilon</strong>
+            \[\epsilon^\mathrm{[s]} = 1 \times 10^{-8}\]
+            
+            <strong>AMSGrad Variant</strong>
+            \[ams^\mathrm{[s]} = \mathrm{False}\]    
         </div>
     </div>
 </div>
 <div class="accordion-item">
     <h2 class="accordion-header" id="headingChild21">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
-            Initialized Memory
+            Initial States
         </button>
     </h2>
     <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
         <div class="accordion-body">
-            <p>
-                First Moment
-                \[
-                \mathbf{\Psi_{P_\mathit{0}}^{\mathrm{[l]}}}=\mathbf{0}_{m \times n}=\begin{bmatrix}0 & \cdots & 0 \\\vdots & \ddots & \vdots \\0 & \cdots & 0\end{bmatrix}
-                \]
-            </p>
-            <p>
-                Second Moment
-                \[
-                \mathbf{\Omega_{P_\mathit{0}}^{\mathrm{[l]}}}=\mathbf{0}_{m \times n}=\begin{bmatrix}0 & \cdots & 0 \\\vdots & \ddots & \vdots \\0 & \cdots & 0\end{bmatrix}
-                \]
-            </p>
-            <p>
-                AMSGrad second moment
-                \[
-                \widehat{\mathbf{\Omega_{P_\mathrm{max}}^{\mathrm{[l]}}}}=\mathbf{0}_{m \times n}=\begin{bmatrix}0 & \cdots & 0 \\\vdots & \ddots & \vdots \\0 & \cdots & 0\end{bmatrix}
-                \]
-            </p>
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>First Moment</strong>
+                                \[\mathbf{\Psi_{P_\mathit{0}}^\mathrm{[l]}}
+                                =
+                                \mathbf{0}_{m \times n}\]
+                                
+                                <strong>Second Moment</strong>
+                                \[\mathbf{\Omega_{P_\mathit{0}}^\mathrm{[l]}}
+                                =
+                                \mathbf{0}_{m \times n}\]
+                                
+                                <strong>Maximum Second Moment</strong>
+                                \[\widehat{\mathbf{\Omega_{P_\mathrm{max}}^\mathrm{[l]}}}
+                                =
+                                \mathbf{0}_{m \times n}\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>First Moment</strong>
+                                \[\mathbf{\Psi_{P_\mathit{0}}^\mathrm{[l]}}
+                                =
+                                \begin{bmatrix}
+                                0 & \cdots & 0 \\
+                                \vdots & \ddots & \vdots \\
+                                0 & \cdots & 0
+                                \end{bmatrix}\]
+
+                                <strong>Second Moment</strong>
+                                \[\mathbf{\Omega_{P_\mathit{0}}^\mathrm{[l]}}
+                                =
+                                \begin{bmatrix}
+                                0 & \cdots & 0 \\
+                                \vdots & \ddots & \vdots \\
+                                0 & \cdots & 0
+                                \end{bmatrix}\]
+
+                                <strong>Maximum Second Moment</strong>
+                                \[\widehat{\mathbf{\Omega_{P_\mathrm{max}}^\mathrm{[l]}}}
+                                =
+                                \begin{bmatrix}
+                                0 & \cdots & 0 \\
+                                \vdots & \ddots & \vdots \\
+                                0 & \cdots & 0
+                                \end{bmatrix}\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -57,41 +124,60 @@
     </h2>
     <div id="collapseChild22" class="accordion-collapse collapse" aria-labelledby="headingChild22">
         <div class="accordion-body">
-            <p>
-                Trainable parameters
-                \[
-                \mathbf{\Theta_P^{\mathrm{[l]}}}
-                =
-                \begin{bmatrix}
-                \theta_{\mathrm{p}_{0, 0}}^{\mathrm{[l]}} &
-                \cdots &
-                \theta_{\mathrm{p}_{0, n}}^{\mathrm{[l]}} \\
-                \vdots &
-                \ddots &
-                \vdots \\
-                \theta_{\mathrm{p}_{m, 0}}^{\mathrm{[l]}} &
-                \cdots &
-                \theta_{\mathrm{p}_{m, n}}^{\mathrm{[l]}} \\
-                \end{bmatrix}
-                \]
-            </p>
-            <p>
-                Calculated gradients
-                \[
-                \nabla_{\mathbf{\Theta_P^{\mathrm{[l]}}}}\mathbf{L} =
-                \begin{bmatrix}
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{0, 0}}}\mathbf{L} &
-                \cdots &
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{0, n}}}\mathbf{L} \\
-                \vdots &
-                \ddots &
-                \vdots \\
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{m, 0}}}\mathbf{L} &
-                \cdots &
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{m, n}}}\mathbf{L} \\
-                \end{bmatrix}
-                \]
-            </p>
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <strong>Trainable Parameters</strong>
+                            \[\mathbf{\Theta_P^\mathrm{[l]}}\]
+                            
+                            <strong>Gradients</strong>
+                            \[\nabla_{\mathbf{\Theta_P^\mathrm{[l]}}}\mathbf{L}\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Trainable Parameters</strong>
+                            \[\begin{bmatrix}
+                            \theta_{\mathrm{p}_{0, 0}}^\mathrm{[l]} &
+                            \cdots &
+                            \theta_{\mathrm{p}_{0, n}}^\mathrm{[l]} \\
+                            \vdots &
+                            \ddots &
+                            \vdots \\
+                            \theta_{\mathrm{p}_{m, 0}}^\mathrm{[l]} &
+                            \cdots &
+                            \theta_{\mathrm{p}_{m, n}}^\mathrm{[l]} \\
+                            \end{bmatrix}\]
+                            
+                            <strong>Gradients</strong>
+                            \[\begin{bmatrix}
+                            \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{0, 0}}}\mathbf{L} &
+                            \cdots &
+                            \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{0, n}}}\mathbf{L} \\
+                            \vdots &
+                            \ddots &
+                            \vdots \\
+                            \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{m, 0}}}\mathbf{L} &
+                            \cdots &
+                            \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{m, n}}}\mathbf{L} \\
+                            \end{bmatrix}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

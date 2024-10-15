@@ -2,30 +2,28 @@
 <div class="accordion-item">
     <h2 class="accordion-header" id="headingChild1">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild1" aria-expanded="true" aria-controls="collapseChild1">
-            Variable Notation
+            Compacted Notation
         </button>
     </h2>
     <div id="collapseChild1" class="accordion-collapse collapse" aria-labelledby="headingChild1">
         <div class="accordion-body">
             <p>
-                L2 regularization
-                \[\mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}} = \nabla_{\mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}}\mathbf{L}_\iota - \lambda^\mathrm{[s]} \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}\]
-            </p>
-            <p>
-                Calculation of the zero-biased first moment estimate (mean)
+                <strong>L2 Regularization</strong>
+                \[\mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}} = \nabla_{\mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}}\mathbf{L}_\iota + \lambda^\mathrm{[s]} \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}\]
+
+                <strong>Moment Estimation</strong>
+
                 \[\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta_1^\mathrm{[s]} \mathbf{\Psi_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta_1^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}\]
-            </p>
-            <p>
-                Calculation of the zero-biased second raw moment estimate (uncentered variance)
+
                 \[\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta_2^\mathrm{[s]} \mathbf{\Omega_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta_2^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}^{\circ 2}\]
-            </p>
-            <p>
-                Zero-bias correction on moments
-                \[\widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}}{1 - \beta_1^{\mathrm{[s]}^\iota}}\]
-                \[\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}{1 - \beta_2^{\mathrm{[s]}^\iota}}\]
-            </p>
-            <p>
-                AMSGrad Variant
+
+                <strong>Zero-Bias Correction</strong>
+
+                \[\widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{1}{1 - \beta_1^{\mathrm{[s]}^\iota}} \mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}\]
+
+                \[\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{1}{1 - \beta_2^{\mathrm{[s]}^\iota}} \mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}\]
+
+                <strong>AMSGrad Variant</strong>
 
                 \[\widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} \leftarrow \mathrm{max} \left( \widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}, \widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} \right)\]
 
@@ -34,9 +32,8 @@
                 \widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} & \text{if } ams^{\mathrm{[s]}} \\
                 \widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} & \text{otherwise}
                 \end{cases}\]
-            </p>
-            <p>
-                Learnable parameter optimization
+
+                <strong>Optimization</strong>
 
                 \[\mathbf{\Theta_{P_\mathit{\iota}}^\mathrm{[l]}} = \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}} - \alpha^{\mathrm{[s]}} \widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} \oslash \left( \sqrt{\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}} + \epsilon^{\mathrm{[s]}} \right)\]
             </p>
@@ -46,7 +43,7 @@
 <div class="accordion-item">
     <h2 class="accordion-header" id="headingChild2">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild2" aria-expanded="false" aria-controls="collapseChild2">
-            Matrix Notation
+            Expanded Notation
         </button>
     </h2>
     <div id="collapseChild2" class="accordion-collapse collapse" aria-labelledby="headingChild2">

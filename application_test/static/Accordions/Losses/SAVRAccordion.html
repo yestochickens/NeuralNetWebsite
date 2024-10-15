@@ -1,0 +1,125 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+    $("#SAVRDerivativeAccordion").load("static/Accordions/Losses/SAVRDerivativeAccordion.html");
+</script>
+<p>
+    <strong>SAVR</strong>, short for Sum of the Absolute Value Residuals, is similar to <strong>SSR</strong>; however, the differences between the true label and predicted label are run through an absolute value function rather than squared. This allows errors to still <strong>add up</strong>, but <strong>doesn't</strong> give more weight to larger errors.    
+</p>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild21">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
+            Variables
+        </button>
+    </h2>
+    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <strong>Predicted</strong> 
+                            \[\mathbf{\hat{Y}}\]
+
+                            <strong>Expected</strong>
+                            \[\mathbf{Y}\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Predicted</strong>
+                            \[\begin{bmatrix}
+                            \widehat{y_0} \\
+                            \vdots \\
+                            \widehat{y_{n_y}}
+                            \end{bmatrix}\]
+                            
+                            <strong>Expected</strong>
+                            
+                            \[\begin{bmatrix}
+                            y_0 \\
+                            \vdots \\
+                            y_{n_y}
+                            \end{bmatrix}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild22">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild22" aria-expanded="true" aria-controls="collapseChild22">
+            Function
+        </button>
+    </h2>
+    <div id="collapseChild22" class="accordion-collapse collapse" aria-labelledby="headingChild22">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <strong>Equation</strong>
+                            \[J \left( \mathbf{\hat{Y}}, \mathbf{Y} \right)
+                            =
+                            \sum_{i=1}^{n_y} \left| y_i - \widehat{y_i} \right|\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Equation</strong>
+                            \[J \left( \begin{bmatrix}
+                            \widehat{y_0} \\
+                            \vdots \\
+                            \widehat{y_{n_y}}
+                            \end{bmatrix},
+                            \begin{bmatrix}
+                            y_0 \\
+                            \vdots \\
+                            y_{n_y}
+                            \end{bmatrix} \right)
+                            =
+                            \sum_{i=1}^{n_y} \left| y_i - \widehat{y_i} \right|\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild23">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild23" aria-expanded="true" aria-controls="collapseChild23">
+            Derivative
+        </button>
+    </h2>
+    <div id="collapseChild23" class="accordion-collapse collapse" aria-labelledby="headingChild23">
+        <div class="accordion-body">
+            <div id="SAVRDerivativeAccordion"></div>
+        </div>
+    </div>
+</div>

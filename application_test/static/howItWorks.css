@@ -3,10 +3,10 @@
     width: 50%;
     margin: 0 auto; /* Centers the text block */
     text-align: left; /* Centers the text within the block */
-    padding-top: 25px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 2px;
+    /* border-bottom: 1px solid black;
+    font-family: 'RobotoSlab', sans-serif; */
 }
 
 .mainImage {
@@ -20,6 +20,16 @@
     padding-bottom: 10px;
 }
 
+.separationBar {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1px;
+    background-color: black;
+    margin-top: 0px; /* Optional: adds space above the bar */
+    margin-bottom: 18px; /* Optional: adds space below the bar */
+}
+
 .mainDisplay {
     width: 50%;
     display: block;
@@ -28,7 +38,9 @@
     /* padding-top: 0px; */
     text-align: left; 
     font-size: 18px;
+    line-height: 27px;
     color: rgb(0,0,0); /* Sets the text color of the caption */
+    font-family: 'RobotoSlab', sans-serif;
 }
 
 .slide {
@@ -39,15 +51,11 @@
 }
 
 #howItWorksInformationText1 {
-    font-size: 18px;
     color: rgb(0,0,0); /* Sets the text color of the caption */
     margin-bottom: 5px;
-    line-height: 27px;
 }
 
 #howItWorksInformationText2 {
-    font-size: 18px;
     color: rgb(0,0,0); /* Sets the text color of the caption */
     margin-bottom: 5px;
-    line-height: 27px;
 }

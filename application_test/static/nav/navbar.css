@@ -9,18 +9,28 @@
 }
 
 .navContainer {
-    width: 90% !important;
-    margin: 0 auto !important;
+    width: 90%;
+    margin: 0 auto;
     /* height: 8vh; */
 }
  
 header {
     /* border-top: 5px solid rgb(75,75,75) !important; */
-    background: rgb(243, 243, 243) !important;
-    border-bottom: 1px solid black !important;
-    font-family: 'HelvecticaNeue', sans-serif !important;
+    background: rgba(50, 50, 50,1.0);
+    font-family: 'HelvecticaNeue', sans-serif;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1050; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;  
 }
  
+body {
+    padding-top: 43px; /* Adjust this based on your navbar height */
+}
+
 /*::after creates a pseudo element that is the last child of the selected element
    - inline by default
    - adds cosmetic content to an element*/
@@ -34,6 +44,7 @@ header::after {
 /*all navbar css*/
 nav {
     float: right !important;
+    display: flex;
     font-family: 'HelvecticaNeue', sans-serif !important;
 } 
  
@@ -44,23 +55,34 @@ nav ul {
 }
 
 nav li {
-    display: inline-block !important; /*puts a little space between them allows for text allignment*/
-    margin-left: 45px !important;
+    display: inline-block !important;
+    margin-left: 46px !important;
     padding-top: 15px !important;
     padding-bottom: 15px !important;
-     /*specific to the animation (can be changed)*/
-    position: relative !important; /*important that its relative*/
+    position: relative !important;
+}
+
+nav li:not(:last-child)::after {
+    content: '' !important;
+    display: block !important;
+    width: 1px !important; /* thin divider*/
+    height: 16px !important; 
+    background-color: white !important;
+    position: absolute !important;
+    right: -23px !important; /* center the divider (the width of the margin is 46 adjust this value based on margin scale) */
+    top: 50% !important; /* creates in middle */
+    transform: translateY(-50%) !important; /* vertically centered */
 }
 
 nav a {
-    color: rgb(100, 100, 100) !important;
+    color: rgb(200, 200, 200) !important;
     text-decoration: none !important;
     text-transform: uppercase !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
 }
 
 nav a:hover {
-    color: rgb(0,0,0) !important;
+    color: rgb(255, 255, 255) !important;
     /* text-decoration: underline; */
     /* border-bottom: 10px solid black; */
     /* font-weight: bold; */ /*do not use this until we find a way to correct navbar shift*/
@@ -71,7 +93,7 @@ nav a::after {
     display: block !important;
     height: 3px !important;
     width: 100% !important; 
-    background-color: rgb(0,0,0) !important;
+    background-color: rgb(255, 255, 255) !important;
 
     position: absolute !important;
     bottom: 0 !important;
@@ -82,4 +104,15 @@ nav a::after {
 
 nav a:hover::after {
     width: 100% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav li {
+        margin-left: 20px; /* Reduce space on smaller screens */
+    }
+    
+    nav li:not(:last-child)::after {
+        right: -10px; /* Adjust position of dividers for smaller screens */
+    }
 }

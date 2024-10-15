@@ -3,28 +3,39 @@
     src: url('static/resources/Roboto/Roboto-Medium.ttf') format('truetype'); /* Replace 'path/to/font.ttf' with the actual path to your font file */
 }
 
-body {
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* body {
     margin: 0;
     background-color: rgb(255, 255, 255);
-}   
+    padding: 0;
+}    */
 
 .titleText {
     font-size: 33px;
     width: 50%;
     margin: 0 auto; /* Centers the text block */
     text-align: left; /* Centers the text within the block */
-    padding-top: 25px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-    font-family: 'RobotoSlab', sans-serif;
+    padding-top: 20px;
+    padding-bottom: 2px;
+    /* border-bottom: 1px solid black;
+    font-family: 'RobotoSlab', sans-serif; */
 }
 
 .separationBar {
-    width: 100%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     height: 1px;
     background-color: black;
-    margin-top: 10px; /* Optional: adds space above the bar */
-    margin-bottom: 10px; /* Optional: adds space below the bar */
+    margin-top: 0px; /* Optional: adds space above the bar */
+    margin-bottom: 18px; /* Optional: adds space below the bar */
 }
 
 .mainDisplay {
@@ -49,6 +60,21 @@ body {
 #coverImage {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+main {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.carousel-container {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.slide {
+    margin: 0;
+    padding: 0;
 }
 
 #homeInformationText {

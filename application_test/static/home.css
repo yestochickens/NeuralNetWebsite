@@ -17,6 +17,11 @@ html, body {
     padding: 0;
 }    */
 
+.carousel-control-prev, 
+.carousel-control-next {
+    display: none !important;
+}
+
 .titleText {
     font-size: 33px;
     width: 50%;

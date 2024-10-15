@@ -43,13 +43,13 @@ body {
 }
 
 .cell {
-    border: 0.1px solid rgb(255, 212, 212);
-    background-color: #fff;
+    border: 0.1px solid rgb(210, 210, 210);
+    background-color: #000000;
 }
 
 .title {
     padding-bottom: 0px !important;
-    padding-top: 10px !important;
+    padding-top: 20px !important;
     margin-bottom: 0px !important;
 }
 

@@ -1,0 +1,144 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+    $("#CrossEntropyDerivativeAccordion").load("static/Accordions/Losses/CrossEntropyDerivativeAccordion.html");
+</script>
+<p>
+    <strong>Cross-Entropy</strong> is a loss commonly used in binary classification. It must be used after a function that finds the probability of each outcome, which is usually achieved through the <strong>Softmax</strong> activation function. Cross-entropy measures the differences in probability distributions, significantly penalizing confident wrong predictions, making it the usual go-to for any model with binary classification.    
+</p>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild20">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild20" aria-expanded="true" aria-controls="collapseChild20">
+            Hyperparameters
+        </button>
+    </h2>
+    <div id="collapseChild20" class="accordion-collapse collapse" aria-labelledby="headingChild20">
+        <div class="accordion-body">
+            <p>
+                <strong>Epsilon</strong>
+                \[\epsilon^\mathrm{[s]} = 1 \times 10^{-8}\]
+            </p>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild21">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
+            Variables
+        </button>
+    </h2>
+    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <strong>Predicted</strong> 
+                            \[\mathbf{\hat{Y}}\]
+
+                            <strong>Expected</strong>
+                            \[\mathbf{Y}\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Predicted</strong>
+                            \[\begin{bmatrix}
+                            \widehat{y_0} \\
+                            \vdots \\
+                            \widehat{y_{n_y}}
+                            \end{bmatrix}\]
+                            
+                            <strong>Expected</strong>
+                            
+                            \[\begin{bmatrix}
+                            y_0 \\
+                            \vdots \\
+                            y_{n_y}
+                            \end{bmatrix}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild22">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild22" aria-expanded="true" aria-controls="collapseChild22">
+            Function
+        </button>
+    </h2>
+    <div id="collapseChild22" class="accordion-collapse collapse" aria-labelledby="headingChild22">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Equation</strong>
+                                \[J \left( \mathbf{\hat{Y}}, \mathbf{Y} \right) = - \sum_{i=1}^{n_y} \left( y
+                                _{i} \mathrm{ln} \left( \widehat{y_i} + \epsilon^\mathrm{[s]} \right) \right)\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Equation</strong>
+                                \[J \left( \begin{bmatrix}
+                                \widehat{y_0} \\
+                                \vdots \\
+                                \widehat{y_{n_y}}
+                                \end{bmatrix},
+                                \begin{bmatrix}
+                                y_0 \\
+                                \vdots \\
+                                y_{n_y}
+                                \end{bmatrix} \right)
+                                =
+                                - \sum_{i=1}^{n_y} \left( y
+                                _{i} \mathrm{ln} \left( \widehat{y_i} + \epsilon^\mathrm{[s]} \right) \right)\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild23">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild23" aria-expanded="true" aria-controls="collapseChild23">
+            Derivative
+        </button>
+    </h2>
+    <div id="collapseChild23" class="accordion-collapse collapse" aria-labelledby="headingChild23">
+        <div class="accordion-body">
+            <div id="CrossEntropyDerivativeAccordion"></div>
+        </div>
+    </div>
+</div>

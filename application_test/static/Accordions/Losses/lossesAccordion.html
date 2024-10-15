@@ -1,4 +1,8 @@
 <script type="text/javascript" src="Accordions\Losses\lossesAccordion.js"></script>
+<script>
+    $("#CrossEntropyAccordion").load("static/Accordions/Losses/CrossEntropyAccordion.html");
+    $("#FocalAccordion").load("static/Accordions/Losses/FocalAccordion.html");
+</script>
 <div class="accordion-item">
     <h2 class="accordion-header" id="headingChild1">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild1" aria-expanded="true" aria-controls="collapseChild1">
@@ -7,7 +11,7 @@
     </h2>
     <div id="collapseChild1" class="accordion-collapse collapse" aria-labelledby="headingChild1">
         <div class="accordion-body">
-            Content for Child Accordion Item #1. test
+            <div id="CrossEntropyAccordion"></div>
         </div>
     </div>
 </div>
@@ -19,7 +23,7 @@
     </h2>
     <div id="collapseChild2" class="accordion-collapse collapse" aria-labelledby="headingChild2">
         <div class="accordion-body">
-            Content for Child Accordion Item #2.
+            <div id="FocalAccordion"></div>
         </div>
     </div>
 </div>

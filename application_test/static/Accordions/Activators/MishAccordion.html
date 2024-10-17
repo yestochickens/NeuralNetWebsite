@@ -1,0 +1,210 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<p>
+    <strong>Mish</strong> is a more recent activation function that aims to combine the benifits of activations like <strong>ReLU</strong> and <strong>Tanh</strong>.    
+</p>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild21">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
+            Hyperparameters
+        </button>
+    </h2>
+    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
+        <div class="accordion-body">
+            <strong>Smoothing</strong>
+            \[\beta^\mathrm{[s]} = 1\]
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild21">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
+            Variables
+        </button>
+    </h2>
+    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Inputs</strong>
+                                \[\mathbf{X}\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Inputs</strong>
+                                \[\mathbf{X} =
+                                \begin{bmatrix}
+                                x_0 \\
+                                \vdots \\
+                                x_n
+                                \end{bmatrix}\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild21">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
+            Function
+        </button>
+    </h2>
+    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Equation</strong>
+                                \[g \left( \mathbf{X} \right)
+                                =
+                                \mathbf{X} \circ \mathrm{tanh} \left( \frac{1}{\beta^\mathrm{[s]}} \mathrm{ln} \left (e^{\circ \beta^\mathrm{[s]} \mathbf{X}} + 1 \right) \right)\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Equation</strong>
+                                \[\begin{bmatrix}
+                                g \left( x_0 \right) \\
+                                \vdots \\
+                                g \left( x_n \right)
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                \displaystyle x_0 \mathrm{tanh} \left( \frac{\mathrm{ln} \left( e^{\beta^\mathrm{[s]} x_0} + 1\right)}{\beta^\mathrm{[s]}} \right) \\
+                                \vdots \\
+                                \displaystyle x_n \mathrm{tanh} \left( \frac{\mathrm{ln} \left( e^{\beta^\mathrm{[s]} x_n} + 1\right)}{\beta^\mathrm{[s]}} \right)
+                                \end{bmatrix}\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild22">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild22" aria-expanded="true" aria-controls="collapseChild22">
+            Derivative
+        </button>
+    </h2>
+    <div id="collapseChild22" class="accordion-collapse collapse" aria-labelledby="headingChild22">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <strong>Equation</strong>
+                            \[\nabla_\mathbf{X}g \left( \mathbf{X} \right)
+                            =
+                            \mathrm{tanh} \left( \frac{1}{\beta^\mathrm{[s]}} \mathrm{ln} \left( e^{\circ \beta^\mathrm{[s]} \mathbf{X}} + 1\right) \right) + \mathbf{X} \circ e^{\circ \beta^\mathrm{[s]} \mathbf{X}} \circ \mathrm{sech}^2 \left( \frac{1}{\beta^\mathrm{[s]}} \mathrm{ln} \left( e^{\circ \beta^\mathrm{[s]} \mathbf{X}} + 1\right) \right) \oslash \left( e^{\circ \beta^\mathrm{[s]} \mathbf{X}} + 1 \right)\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Equation</strong>
+                            \[\begin{bmatrix}
+                            \displaystyle \frac{\partial}{\partial x_0} g \left( x_0 \right) \\
+                            \vdots \\
+                            \displaystyle \frac{\partial}{\partial x_n} g \left( x_n \right)
+                            \end{bmatrix}
+                            =
+                            \mathrm{tanh} \left( \frac{1}{\beta^\mathrm{[s]}} \mathrm{ln} \left( \begin{bmatrix}
+                            e^{\beta^\mathrm{[s]} x_0} \\
+                            \vdots \\
+                            e^{\beta^\mathrm{[s]} x_n}
+                            \end{bmatrix} + 1 \right) \right) + \begin{bmatrix}
+                            x_0 \\
+                            \vdots \\
+                            x_n
+                            \end{bmatrix} \circ \begin{bmatrix}
+                            e^{\beta^\mathrm{[s]} x_0} \\
+                            \vdots \\
+                            e^{\beta^\mathrm{[s]} x_n}
+                            \end{bmatrix} \circ \mathrm{sech}^2 \left( \frac{1}{\beta^\mathrm{[s]}} \mathrm{ln} \left( \begin{bmatrix}
+                            e^{\beta^\mathrm{[s]} x_0} \\
+                            \vdots \\
+                            e^{\beta^\mathrm{[s]} x_n}
+                            \end{bmatrix} + 1\right) \right) \oslash \left( \begin{bmatrix}
+                            e^{\beta^\mathrm{[s]} x_0} \\
+                            \vdots \\
+                            e^{\beta^\mathrm{[s]} x_n}
+                            \end{bmatrix} + 1 \right)\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Linear Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Equation</strong>
+                            \[\begin{bmatrix}
+                            \displaystyle \frac{\partial}{\partial x_0} g \left( x_0 \right) \\
+                            \vdots \\
+                            \displaystyle \frac{\partial}{\partial x_n} g \left( x_n \right)
+                            \end{bmatrix}
+                            =
+                            \begin{bmatrix}
+                            \displaystyle \mathrm{tanh} \left( \frac{\mathrm{ln} \left( e^{\beta^\mathrm{[s]} x_0} + 1\right)}{\beta^\mathrm{[s]}} \right) + \frac{x_0 e^{\beta^\mathrm{[s]} x_0} \mathrm{sech}^2 \left( \frac{\displaystyle \mathrm{ln} \left( e^{\beta^\mathrm{[s]} x_0} + 1\right)}{\beta^\mathrm{[s]}} \right)}{e^{\beta^\mathrm{[s]} x_0} + 1} \\
+                            \vdots \\
+                            \displaystyle \mathrm{tanh} \left( \frac{\mathrm{ln} \left( e^{\beta^\mathrm{[s]} x_n} + 1\right)}{\beta^\mathrm{[s]}} \right) + \frac{x_n e^{\beta^\mathrm{[s]} x_n} \mathrm{sech}^2 \left( \frac{\displaystyle \mathrm{ln} \left( e^{\beta^\mathrm{[s]} x_n} + 1\right)}{\beta^\mathrm{[s]}} \right)}{e^{\beta^\mathrm{[s]} x_n} + 1}
+                            \end{bmatrix}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

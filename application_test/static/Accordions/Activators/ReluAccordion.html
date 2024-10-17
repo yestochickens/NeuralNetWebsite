@@ -1,0 +1,167 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<p>
+    <strong>ReLU</strong>, short for Rectified Linear Unit, is one of the most commonly used activation functions due to its simplicity and effectiveness. It provides some of the best results in models and remains computationally efficient.    
+</p>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild21">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
+            Variables
+        </button>
+    </h2>
+    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Inputs</strong>
+                                \[\mathbf{X}\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Inputs</strong>
+                                \[\mathbf{X} =
+                                \begin{bmatrix}
+                                x_0 \\
+                                \vdots \\
+                                x_n
+                                \end{bmatrix}\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild21">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
+            Function
+        </button>
+    </h2>
+    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Equation</strong>
+                                \[g \left( \mathbf{X} \right)
+                                =
+                                \mathrm{max} \left( 0, \mathbf{X} \right)\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Equation</strong>
+                                \[\begin{bmatrix}
+                                g \left( x_0 \right) \\
+                                \vdots \\
+                                g \left( x_n \right)
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                \mathrm{max} \left( 0, x_0 \right) \\
+                                \vdots \\
+                                \mathrm{max} \left( 0, x_n \right)
+                                \end{bmatrix}\]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingChild22">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild22" aria-expanded="true" aria-controls="collapseChild22">
+            Derivative
+        </button>
+    </h2>
+    <div id="collapseChild22" class="accordion-collapse collapse" aria-labelledby="headingChild22">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                        <div class="accordion-body">
+                            <strong>Equation</strong>
+                            \[\nabla_\mathbf{X}g \left( \mathbf{X} \right)
+                            =
+                            \begin{cases}
+                            1 & \text{if } 0 < \mathbf{X} \\
+                            0 & \text{otherwise}
+                            \end{cases}\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                        <div class="accordion-body">
+                            <strong>Equation</strong>
+                            \[\begin{bmatrix}
+                            \displaystyle \frac{\partial}{\partial x_0} g \left( x_0 \right) \\
+                            \vdots \\
+                            \displaystyle \frac{\partial}{\partial x_n} g \left( x_n \right)
+                            \end{bmatrix}
+                            =
+                            \begin{bmatrix}
+                            \begin{cases}
+                            1 & \text{if } 0 < x_0 \\
+                            0 & \text{otherwise}
+                            \end{cases} \\
+                            \vdots \\
+                            \begin{cases}
+                            1 & \text{if } 0 < x_n \\
+                            0 & \text{otherwise}
+                            \end{cases}
+                            \end{bmatrix}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

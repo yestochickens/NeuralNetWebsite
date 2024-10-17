@@ -12,19 +12,16 @@
                 \[\mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}} = \nabla_{\mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}}\mathbf{L}_\iota + \lambda^\mathrm{[s]} \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}}\]
 
                 <strong>Moment Estimation</strong>
-
                 \[\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta_1^\mathrm{[s]} \mathbf{\Psi_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta_1^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}\]
 
                 \[\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}} = \beta_2^\mathrm{[s]} \mathbf{\Omega_{P_\mathit{\iota - 1}}^\mathrm{[l]}} + \left( 1 - \beta_2^\mathrm{[s]} \right) \mathbf{\Gamma_{P_\mathit{\iota}}^\mathrm{[l]}}^{\circ 2}\]
 
                 <strong>Zero-Bias Correction</strong>
-
                 \[\widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{1}{1 - \beta_1^{\mathrm{[s]}^\iota}} \mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}\]
 
                 \[\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} = \frac{1}{1 - \beta_2^{\mathrm{[s]}^\iota}} \mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}\]
 
                 <strong>AMSGrad Variant</strong>
-
                 \[\widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} \leftarrow \mathrm{max} \left( \widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}, \widehat{\mathbf{\Omega_{P_\mathit{\mathrm{max}}}^\mathrm{[l]}}} \right)\]
 
                 \[\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}} \leftarrow
@@ -34,7 +31,6 @@
                 \end{cases}\]
 
                 <strong>Optimization</strong>
-
                 \[\mathbf{\Theta_{P_\mathit{\iota}}^\mathrm{[l]}} = \mathbf{\Theta_{P_\mathit{\iota - 1}}^\mathrm{[l]}} - \alpha^{\mathrm{[s]}} \widehat{\mathbf{\Psi_{P_\mathit{\iota}}^\mathrm{[l]}}} \oslash \left( \sqrt{\widehat{\mathbf{\Omega_{P_\mathit{\iota}}^\mathrm{[l]}}}} + \epsilon^{\mathrm{[s]}} \right)\]
             </p>
         </div>
@@ -49,7 +45,7 @@
     <div id="collapseAdamMethodExpanded" class="accordion-collapse collapse" aria-labelledby="headingAdamMethodExpanded">
         <div class="accordion-body">
             <p>
-                L2 regularization
+                <strong>L2 regularization</strong>
                 \[\begin{bmatrix}
                 \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
@@ -63,17 +59,17 @@
                 \end{bmatrix}
                 =
                 \begin{bmatrix}
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota &
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota &
                 \cdots &
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota \\
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota \\
                 \vdots &
                 \ddots &
                 \vdots \\
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota &
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota &
                 \cdots &
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota \\
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota \\
                 \end{bmatrix}
-                -
+                +
                 \lambda^\mathrm{[s]} \begin{bmatrix}
                 \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
                 \cdots &
@@ -87,7 +83,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                Calculation of the zero-biased first moment estimate (mean)
+                <strong>Moment Estimation</strong>
                 \[\begin{bmatrix}
                 \psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
@@ -123,10 +119,7 @@
                 \cdots &
                 \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
                 \end{bmatrix}\]
-            </p>
-            <p>
-                Calculation of the zero-biased second raw moment estimate (uncentered variance)
-
+                
                 \[\begin{bmatrix}
                 \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
@@ -164,8 +157,7 @@
                 \end{bmatrix}^{\circ 2}\]
             </p>
             <p>
-                Zero-bias correction on moments
-
+                <strong>Zero-Bias Correction</strong>
                 \[\begin{bmatrix}
                 \widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
                 \cdots &
@@ -189,7 +181,7 @@
                 \cdots &
                 \psi_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
                 \end{bmatrix}\]
-                
+
                 \[\begin{bmatrix}
                 \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
                 \cdots &
@@ -215,8 +207,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                AMSGrad Variant
-
+                <strong>AMSGrad Variant</strong>
                 \[\begin{bmatrix}
                 \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} &
                 \cdots &
@@ -251,7 +242,7 @@
                 \cdots &
                 \widehat{\omega_{\mathrm{p}_{{m, n}_\mathrm{max}}}^\mathrm{[l]}} \\
                 \end{bmatrix} \right)\]
-                
+
                 \[\begin{bmatrix}
                 \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
                 \cdots &
@@ -290,21 +281,8 @@
                 \end{cases}\]
             </p>
             <p>
-                Trainable parameter optimization
-
+                <strong>Optimization</strong>
                 \[\begin{bmatrix}
-                \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
-                \cdots &
-                \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
-                \vdots &
-                \ddots &
-                \vdots \\
-                \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
-                \cdots &
-                \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
-                \end{bmatrix}
-                =
-                \begin{bmatrix}
                 \theta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
                 \theta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
@@ -314,6 +292,18 @@
                 \theta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
                 \theta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \vdots &
+                \ddots &
+                \vdots \\
+                \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \cdots &
+                \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
                 \end{bmatrix}
                 - \alpha^\mathrm{[s]} \begin{bmatrix}
                 \widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
@@ -351,8 +341,7 @@
     <div id="collapseAdamMethodLinear" class="accordion-collapse collapse" aria-labelledby="headingAdamMethodLinear">
         <div class="accordion-body">
             <p>
-                L2 regularization
-            
+                <strong>L2 regularization</strong>
                 \[\begin{bmatrix}
                 \gamma_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
@@ -366,20 +355,19 @@
                 \end{bmatrix}
                 =
                 \begin{bmatrix}
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota - \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}&
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, 0}_{\iota - 1}}}}\mathbf{L}_\iota + \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}&
                 \cdots &
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota - \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{0, n}_{\iota - 1}}}}\mathbf{L}_\iota + \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
                 \vdots &
                 \ddots &
                 \vdots \\
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota - \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, 0}_{\iota - 1}}}}\mathbf{L}_\iota + \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
                 \cdots &
-                \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota - \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \displaystyle \frac{\partial}{\partial \theta^{\mathrm{[l]}}_{\mathrm{p}_{{m, n}_{\iota - 1}}}}\mathbf{L}_\iota + \lambda^{\mathrm{[s]}} \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
                 \end{bmatrix}\]
             </p>
             <p>
-                Calculation of the zero-biased first moment estimate (mean)
-            
+                <strong>Moment Estimation</strong>
                 \[\begin{bmatrix}
                 \psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
@@ -403,10 +391,7 @@
                 \cdots &
                 \beta_1^{\mathrm{[s]}} \psi_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} + \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} - \beta_1^{\mathrm{[s]}} \gamma_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
                 \end{bmatrix}\]
-            </p>
-            <p>
-                Calculation of the zero-biased second raw moment estimate (uncentered variance)
-            
+                
                 \[\begin{bmatrix}
                 \omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
@@ -432,8 +417,7 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                Zero-bias correction on moments
-            
+                <strong>Zero-Bias Correction</strong>
                 \[\begin{bmatrix}
                 \widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
                 \cdots &
@@ -447,17 +431,17 @@
                 \end{bmatrix}
                 =
                 \begin{bmatrix}
-                \frac{\psi_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} &
+                \displaystyle \frac{\psi_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} &
                 \cdots &
-                \frac{\psi_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} \\
+                \displaystyle \frac{\psi_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} \\
                 \vdots &
                 \ddots &
                 \vdots \\
-                \frac{\psi_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} &
+                \displaystyle \frac{\psi_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} &
                 \cdots &
-                \frac{\psi_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} \\
+                \displaystyle \frac{\psi_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_1^{{\mathrm{[s]}}^\iota}} \\
                 \end{bmatrix}\]
-
+                
                 \[\begin{bmatrix}
                 \widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}} &
                 \cdots &
@@ -471,20 +455,19 @@
                 \end{bmatrix}
                 =
                 \begin{bmatrix}
-                \frac{\omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} &
+                \displaystyle \frac{\omega_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} &
                 \cdots &
-                \frac{\omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} \\
+                \displaystyle \frac{\omega_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} \\
                 \vdots &
                 \ddots &
                 \vdots \\
-                \frac{\omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} &
+                \displaystyle \frac{\omega_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} &
                 \cdots &
-                \frac{\omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} \\
+                \displaystyle \frac{\omega_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]}}{1 - \beta_2^{{\mathrm{[s]}}^\iota}} \\
                 \end{bmatrix}\]
             </p>
             <p>
-                AMSGrad Variant
-            
+                <strong>AMSGrad Variant</strong>
                 \[\begin{bmatrix}
                 \widehat{\omega_{\mathrm{p}_{{0, 0}_\mathrm{max}}}^\mathrm{[l]}} &
                 \cdots &
@@ -546,30 +529,29 @@
                 \end{bmatrix}\]
             </p>
             <p>
-                Learnable parameter optimization
-            
+                <strong>Optimization</strong>
                 \[\begin{bmatrix}
-                \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \theta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
-                \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \theta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} \\
                 \vdots &
                 \ddots &
                 \vdots \\
-                \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} &
+                \theta_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]} &
                 \cdots &
-                \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} \\
+                \theta_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]} \\
                 \end{bmatrix}
                 =
                 \begin{bmatrix}
-                \theta_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} &
+                \displaystyle \theta_{\mathrm{p}_{{0, 0}_{\iota - 1}}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{0, 0}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} &
                 \cdots &
-                \theta_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} \\
+                \displaystyle \theta_{\mathrm{p}_{{0, n}_{\iota - 1}}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{0, n}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} \\
                 \vdots &
                 \ddots &
                 \vdots \\
-                \theta_{\mathrm{p}_{{m, 0}_{\iota}}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} &
+                \displaystyle \theta_{\mathrm{p}_{{m, 0}_{\iota - 1}}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{m, 0}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} &
                 \cdots &
-                \theta_{\mathrm{p}_{{m, n}_{\iota}}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} \\
+                \displaystyle \theta_{\mathrm{p}_{{m, n}_{\iota - 1}}}^\mathrm{[l]} - \alpha^{\mathrm{[s]}} \frac{\widehat{\psi_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}}{\sqrt{\widehat{\omega_{\mathrm{p}_{{m, n}_\iota}}^\mathrm{[l]}}} + \epsilon^{\mathrm{[s]}}} \\
                 \end{bmatrix}\]
             </p>
         </div>

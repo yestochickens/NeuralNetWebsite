@@ -10,12 +10,12 @@
     The <strong>zero-bias correction</strong> allows for initial few steps to be appropriately scaled. The <strong>AMSGrad</strong> variant of Adam attempts prevent convergence issues with Adam by taking the maximum observed second moment rather than the current estimated second moment.
 </p>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild20">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild20" aria-expanded="true" aria-controls="collapseChild20">
+    <h2 class="accordion-header" id="headingAdamHyperparamenters">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdamHyperparamenters" aria-expanded="true" aria-controls="collapseAdamHyperparamenters">
             Hyperparameters
         </button>
     </h2>
-    <div id="collapseChild20" class="accordion-collapse collapse" aria-labelledby="headingChild20">
+    <div id="collapseAdamHyperparamenters" class="accordion-collapse collapse" aria-labelledby="headingAdamHyperparamenters">
         <div class="accordion-body">
             <strong>Learning Rate</strong>
             \[\alpha^\mathrm{[s]} = 1 \times 10^{-3}\]
@@ -38,21 +38,21 @@
     </div>
 </div>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild21">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild21" aria-expanded="true" aria-controls="collapseChild21">
+    <h2 class="accordion-header" id="headingAdamInitialStates">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdamInitialStates" aria-expanded="true" aria-controls="collapseAdamInitialStates">
             Initial States
         </button>
     </h2>
-    <div id="collapseChild21" class="accordion-collapse collapse" aria-labelledby="headingChild21">
+    <div id="collapseAdamInitialStates" class="accordion-collapse collapse" aria-labelledby="headingAdamInitialStates">
         <div class="accordion-body">
-            <div class="accordion" id="compactedNotationAccordion">
+            <div class="accordion">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingCompacted">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                    <h2 class="accordion-header" id="headingAdamInitialStatesCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdamInitialStatesCompacted" aria-expanded="true" aria-controls="collapseAdamInitialStatesCompacted">
                             Compacted Notation
                         </button>
                     </h2>
-                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                    <div id="collapseAdamInitialStatesCompacted" class="accordion-collapse collapse" aria-labelledby="headingAdamInitialStatesCompacted">
                         <div class="accordion-body">
                             <p>
                                 <strong>First Moment</strong>
@@ -74,12 +74,12 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingExpanded">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                    <h2 class="accordion-header" id="headingAdamInitialStatesExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdamInitialStatesExpanded" aria-expanded="true" aria-controls="collapseAdamInitialStatesExpanded">
                             Expanded Notation
                         </button>
                     </h2>
-                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                    <div id="collapseAdamInitialStatesExpanded" class="accordion-collapse collapse" aria-labelledby="headingAdamInitialStatesExpanded">
                         <div class="accordion-body">
                             <p>
                                 <strong>First Moment</strong>
@@ -117,21 +117,21 @@
     </div>
 </div>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild22">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild22" aria-expanded="true" aria-controls="collapseChild22">
+    <h2 class="accordion-header" id="headingAdamVariables">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdamVariables" aria-expanded="true" aria-controls="collapseAdamVariables">
             Variables
         </button>
     </h2>
-    <div id="collapseChild22" class="accordion-collapse collapse" aria-labelledby="headingChild22">
+    <div id="collapseAdamVariables" class="accordion-collapse collapse" aria-labelledby="headingAdamVariables">
         <div class="accordion-body">
             <div class="accordion" id="compactedNotationAccordion">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingCompacted">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                    <h2 class="accordion-header" id="headingAdamVariablesCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdamVariablesCompacted" aria-expanded="true" aria-controls="collapseAdamVariablesCompacted">
                             Compacted Notation
                         </button>
                     </h2>
-                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                    <div id="collapseAdamVariablesCompacted" class="accordion-collapse collapse" aria-labelledby="headingAdamVariablesCompacted">
                         <div class="accordion-body">
                             <strong>Trainable Parameters</strong>
                             \[\mathbf{\Theta_P^\mathrm{[l]}}\]
@@ -142,12 +142,12 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingExpanded">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                    <h2 class="accordion-header" id="headingAdamVariablesExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdamVariablesExpanded" aria-expanded="true" aria-controls="collapseAdamVariablesExpanded">
                             Expanded Notation
                         </button>
                     </h2>
-                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                    <div id="collapseAdamVariablesExpanded" class="accordion-collapse collapse" aria-labelledby="headingAdamVariablesExpanded">
                         <div class="accordion-body">
                             <strong>Trainable Parameters</strong>
                             \[\begin{bmatrix}
@@ -182,12 +182,12 @@
     </div>
 </div>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild23">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild23" aria-expanded="true" aria-controls="collapseChild23">
+    <h2 class="accordion-header" id="headingAdamMethod">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdamMethod" aria-expanded="true" aria-controls="collapseAdamMethod">
             Method
         </button>
     </h2>
-    <div id="collapseChild23" class="accordion-collapse collapse" aria-labelledby="headingChild23">
+    <div id="collapseAdamMethod" class="accordion-collapse collapse" aria-labelledby="headingAdamMethod">
         <div class="accordion-body">
             <div id="adamMethodAccordion"></div>
         </div>

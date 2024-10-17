@@ -2,20 +2,19 @@
 <script>
     $("#SGDMethodAccordion").load("static/Accordions/Optimizers/SGDMethodAccordion.html");
 </script>
-<p><strong>SGD</strong>, short for Stochastic Gradient Descent, is the most straightforward optimization algorithm. It directly descends down the calculated gradient.</p>
+<p>
+    <strong>SGD</strong>, short for Stochastic Gradient Descent, is the most straightforward optimization algorithm. It directly descends down the calculated gradient.
+    Typically, SGD allows some modifications from raw gradient descent. <strong>Momentum</strong> allows for smoother descent with a better chance to end in a global, rather than local minimum. <strong>Dampening</strong> reduces the current gradient term and allows for more reliance on momentum.
+    Additionally, descent can be increased through prediction of momentum terms via the <strong>Nesterov</strong> variant of momentum.
+</p>
 
-<p>Typically, SGD allows some modifications from raw gradient descent. <strong>Momentum</strong> allows for smoother descent with a better chance to end in a global, rather than local minimum. <strong>Dampening</strong> reduces the current gradient term and allows for more reliance on momentum.</p>
-
-<p>Additionally, descent can be increased through prediction of momentum terms via the <strong>Nesterov</strong> variant of momentum.</p>
-
-<!-- Accordion for Hyperparameters -->
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingHyperparams">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHyperparams" aria-expanded="true" aria-controls="collapseHyperparams">
+    <h2 class="accordion-header" id="headingSGDHyperparams">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSGDHyperparams" aria-expanded="true" aria-controls="collapseSGDHyperparams">
             Hyperparameters
         </button>
     </h2>
-    <div id="collapseHyperparams" class="accordion-collapse collapse" aria-labelledby="headingHyperparams">
+    <div id="collapseSGDHyperparams" class="accordion-collapse collapse" aria-labelledby="headingSGDHyperparams">
         <div class="accordion-body">
             <p>
                 <strong>Learning Rate</strong>
@@ -37,24 +36,22 @@
     </div>
 </div>
 
-<!-- Accordion for Initial States -->
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingInitialStates">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInitialStates" aria-expanded="true" aria-controls="collapseInitialStates">
+    <h2 class="accordion-header" id="headingSGDInitialStates">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSGDInitialStates" aria-expanded="true" aria-controls="collapseSGDInitialStates">
             Initial States
         </button>
     </h2>
-    <div id="collapseInitialStates" class="accordion-collapse collapse" aria-labelledby="headingInitialStates">
+    <div id="collapseSGDInitialStates" class="accordion-collapse collapse" aria-labelledby="headingSGDInitialStates">
         <div class="accordion-body">
-            <!-- Compacted Notation Accordion -->
-            <div class="accordion" id="compactedNotationAccordion">
+            <div class="accordion">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingCompacted">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                    <h2 class="accordion-header" id="headingSGDInitialStatesCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSGDInitialStatesCompacted" aria-expanded="true" aria-controls="collapseSGDInitialStatesCompacted">
                             Compacted Notation
                         </button>
                     </h2>
-                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                    <div id="collapseSGDInitialStatesCompacted" class="accordion-collapse collapse" aria-labelledby="headingSGDInitialStatesCompacted">
                         <div class="accordion-body">
                             <strong>Delta</strong> 
                             \[\mathbf{\Delta_{P_\mathit{0}}^\mathrm{[l]}} = \mathbf{0}_{m \times n}\]
@@ -62,12 +59,12 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingExpanded">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                    <h2 class="accordion-header" id="headingSGDInitialStatesExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSGDInitialStatesExpanded" aria-expanded="true" aria-controls="collapseSGDInitialStatesExpanded">
                             Expanded Notation
                         </button>
                     </h2>
-                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                    <div id="collapseSGDInitialStatesExpanded" class="accordion-collapse collapse" aria-labelledby="headingSGDInitialStatesExpanded">
                         <div class="accordion-body">
                             <strong>Delta</strong>
                             \[
@@ -86,23 +83,22 @@
     </div>
 </div>
 
-<!-- Accordion for Variables -->
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingVariables">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVariables" aria-expanded="true" aria-controls="collapseVariables">
+    <h2 class="accordion-header" id="headingSGDVariables">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSGDVariables" aria-expanded="true" aria-controls="collapseSGDVariables">
             Variables
         </button>
     </h2>
-    <div id="collapseVariables" class="accordion-collapse collapse" aria-labelledby="headingVariables">
+    <div id="collapseSGDVariables" class="accordion-collapse collapse" aria-labelledby="headingSGDVariables">
         <div class="accordion-body">
-            <div class="accordion" id="compactedNotationAccordion">
+            <div class="accordion">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingCompacted">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompacted" aria-expanded="true" aria-controls="collapseCompacted">
+                    <h2 class="accordion-header" id="headingSGDVariablesCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSGDVariablesCompacted" aria-expanded="true" aria-controls="collapseSGDVariablesCompacted">
                             Compacted Notation
                         </button>
                     </h2>
-                    <div id="collapseCompacted" class="accordion-collapse collapse" aria-labelledby="headingCompacted">
+                    <div id="collapseSGDVariablesCompacted" class="accordion-collapse collapse" aria-labelledby="headingSGDVariablesCompacted">
                         <div class="accordion-body">
                             <strong>Trainable Parameters</strong>
                             \[\mathbf{\Theta_P^\mathrm{[l]}}\]
@@ -113,12 +109,12 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingExpanded">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+                    <h2 class="accordion-header" id="headingSGDVariablesExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSGDVariablesExpanded" aria-expanded="true" aria-controls="collapseSGDVariablesExpanded">
                             Expanded Notation
                         </button>
                     </h2>
-                    <div id="collapseExpanded" class="accordion-collapse collapse" aria-labelledby="headingExpanded">
+                    <div id="collapseSGDVariablesExpanded" class="accordion-collapse collapse" aria-labelledby="headingSGDVariablesExpanded">
                         <div class="accordion-body">
                             <strong>Trainable Parameters</strong>
                             \[\begin{bmatrix}
@@ -153,14 +149,13 @@
     </div>
 </div>
 
-<!-- Accordion for Method -->
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingMethod">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMethod" aria-expanded="true" aria-controls="collapseMethod">
+    <h2 class="accordion-header" id="headingSGDMethod">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSGDMethod" aria-expanded="true" aria-controls="collapseSGDMethod">
             Method
         </button>
     </h2>
-    <div id="collapseMethod" class="accordion-collapse collapse" aria-labelledby="headingMethod">
+    <div id="collapseSGDMethod" class="accordion-collapse collapse" aria-labelledby="headingSGDMethod">
         <div class="accordion-body">
             <div id="SGDMethodAccordion"></div>
         </div>

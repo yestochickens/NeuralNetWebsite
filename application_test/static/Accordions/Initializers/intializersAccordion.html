@@ -1,37 +1,42 @@
 <script type="text/javascript" src="static\Accordions\Initializers\initializersAccordion.js"></script>
+<script>
+    $("#XavierAccordion").load("static/Accordions/Initializers/XavierAccordion.html");
+    $("#GaussianAccordion").load("static/Accordions/Initializers/GaussianAccordion.html");
+    $("#UniformAccordion").load("static/Accordions/Initializers/UniformAccordion.html");
+</script>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild12">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild12" aria-expanded="true" aria-controls="collapseChild12">
-            Xavier/Glorot
+    <h2 class="accordion-header" id="headingXavier">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseXavier" aria-expanded="true" aria-controls="collapseXavier">
+            Xavier
         </button>
     </h2>
-    <div id="collapseChild12" class="accordion-collapse collapse" aria-labelledby="headingChild12">
+    <div id="collapseXavier" class="accordion-collapse collapse" aria-labelledby="headingXavier">
         <div class="accordion-body">
             <div class="accordion" id="XavierAccordion"></div>
         </div>
     </div>
 </div>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild13">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild13" aria-expanded="false" aria-controls="collapseChild13">
+    <h2 class="accordion-header" id="headingGaussian">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaussian" aria-expanded="false" aria-controls="collapseGaussian">
             Gaussian
         </button>
     </h2>
-    <div id="collapseChild13" class="accordion-collapse collapse" aria-labelledby="headingChild13">
+    <div id="collapseGaussian" class="accordion-collapse collapse" aria-labelledby="headingGaussian">
         <div class="accordion-body">
-            Content for Child Accordion Item #2.
+            <div class="accordion" id="GaussianAccordion"></div>
         </div>
     </div>
 </div>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild14">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild14" aria-expanded="false" aria-controls="collapseChild14">
+    <h2 class="accordion-header" id="headingUniform">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUniform" aria-expanded="false" aria-controls="collapseUniform">
             Uniform
         </button>
     </h2>
-    <div id="collapseChild14" class="accordion-collapse collapse" aria-labelledby="headingChild14">
+    <div id="collapseUniform" class="accordion-collapse collapse" aria-labelledby="headingUniform">
         <div class="accordion-body">
-            Content for Child Accordion Item #2.
+            <div class="accordion" id="UniformAccordion"></div>
         </div>
     </div>
 </div>

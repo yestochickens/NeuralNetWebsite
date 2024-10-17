@@ -1,0 +1,115 @@
+<head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<p>
+    <strong>Gaussian</strong> initialization initializes parameters under a Gaussian curve. It's usually the basis for initialization for parameters that benifit from random initialization, such as initialization for <strong>weights</strong>.
+</p>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingGaussionHyperparameters">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaussionHyperparameters" aria-expanded="true" aria-controls="collapseGaussionHyperparameters">
+            Hyperparameters
+        </button>
+    </h2>
+    <div id="collapseGaussionHyperparameters" class="accordion-collapse collapse" aria-labelledby="headingGaussionHyperparameters">
+        <div class="accordion-body">
+            <strong>Mean</strong>
+            \[\mu^\mathrm{[s]} = 1\]
+
+            <strong>Standard Deviation</strong>
+            \[\sigma^\mathrm{[s]} = 1\]
+
+            <strong>Gain</strong>
+            \[\kappa^\mathrm{[s]} = 1\]
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingGaussionBaseFunction">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaussionBaseFunction" aria-expanded="true" aria-controls="collapseGaussionBaseFunction">
+            Base Function
+        </button>
+    </h2>
+    <div id="collapseGaussionBaseFunction" class="accordion-collapse collapse" aria-labelledby="headingGaussionBaseFunction">
+        <div class="accordion-body">
+            <strong>Gaussian Distribution</strong>
+
+            \[\mathcal{N} \left( x | \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right)
+            =
+            \frac{e^{-\frac{\left( x - \mu^\mathrm{[s]} \right)^2}{2 {\sigma^\mathrm{[s]}}^2}}}{\sqrt{2 \pi {\sigma^\mathrm{[s]}}^2}}\]
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingGaussionVariables">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaussionVariables" aria-expanded="true" aria-controls="collapseGaussionVariables">
+            Variables
+        </button>
+    </h2>
+    <div id="collapseGaussionVariables" class="accordion-collapse collapse" aria-labelledby="headingGaussionVariables">
+        <div class="accordion-body">
+            <strong>Rows</strong>
+            \[n\]
+
+            <strong>Columns</strong>
+            \[m\]
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingGaussionMethod">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaussionMethod" aria-expanded="true" aria-controls="collapseGaussionMethod">
+            Method
+        </button>
+    </h2>
+    <div id="collapseGaussionMethod" class="accordion-collapse collapse" aria-labelledby="headingGaussionMethod">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingGaussionMethodCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaussionMethodCompacted" aria-expanded="true" aria-controls="collapseGaussionMethodCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseGaussionMethodCompacted" class="accordion-collapse collapse" aria-labelledby="headingGaussionMethodCompacted">
+                        <div class="accordion-body">
+                            <strong>Initialization</strong>
+                            \[\mathbf{\Theta_P^\mathrm{[l]}}
+                            \sim
+                            \kappa^\mathrm{[s]} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right), \forall i \in \left[ 1, n \right], j \in \left[ 1, m \right]\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingGaussianMethodExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaussianMethodExpanded" aria-expanded="true" aria-controls="collapseGaussianMethodExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseGaussianMethodExpanded" class="accordion-collapse collapse" aria-labelledby="headingGaussianMethodExpanded">
+                        <div class="accordion-body">
+                            <strong>Initialization</strong>
+                            \[\begin{bmatrix}
+                            \theta_{\mathrm{p}_{0, 0}}^\mathrm{[l]} &
+                            \cdots &
+                            \theta_{\mathrm{p}_{0, n}}^\mathrm{[l]} \\
+                            \vdots &
+                            \ddots &
+                            \vdots \\
+                            \theta_{\mathrm{p}_{m, 0}}^\mathrm{[l]} &
+                            \cdots &
+                            \theta_{\mathrm{p}_{m, n}}^\mathrm{[l]} \\
+                            \end{bmatrix}
+                            \sim
+                            \begin{bmatrix}
+                            \kappa^\mathrm{[s]} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right) & \cdots & \kappa^\mathrm{[s]} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right) \\
+                            \vdots & \ddots & \vdots \\
+                            \kappa^\mathrm{[s]} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right) & \cdots & \kappa^\mathrm{[s]} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right)
+                            \end{bmatrix}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

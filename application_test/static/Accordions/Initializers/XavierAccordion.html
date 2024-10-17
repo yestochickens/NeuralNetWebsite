@@ -2,72 +2,113 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
+<p>
+    <strong>Xavier</strong> initialization is an initialization technique built on <strong>Gaussian</strong>. It allows for better gradient flow and convergence while training a model.
+</p>
 <div class="accordion-item">
-    <h2 class="accordion-header" id="headingChild19">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChild19" aria-expanded="true" aria-controls="collapseChild19">
-            Parameters
+    <h2 class="accordion-header" id="headingXavierHyperparameters">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseXavierHyperparameters" aria-expanded="true" aria-controls="collapseXavierHyperparameters">
+            Hyperparameters
         </button>
     </h2>
-    <div id="collapseChild19" class="accordion-collapse collapse" aria-labelledby="headingChild19">
+    <div id="collapseXavierHyperparameters" class="accordion-collapse collapse" aria-labelledby="headingXavierHyperparameters">
         <div class="accordion-body">
-            <p>
-                \[
-                \mathbf{\nabla_{\Theta} L} \leftarrow \mathbf{\nabla_{\Theta} L} + \lambda \Theta
-                \]
-            </p>
-        
-            <p>
-                \[
-                \delta_\iota \leftarrow \beta_1 \delta_{\iota - 1} + (1 - \beta_1) \mathbf{\nabla_{\Theta} L}
-                \]
-            </p>
-        
-            <p>
-                \[
-                \upsilon_\iota \leftarrow \beta_2 \upsilon_{\iota - 1} + (1 - \beta_2) (\mathbf{\nabla_{\Theta} L})^2
-                \]
-            </p>
-        
-            <p>
-                \[
-                \widehat{\delta_\iota} \leftarrow \frac{\delta_\iota}{1 - \beta_1^\iota}
-                \]
-            </p>
-        
-            <p>
-                \[
-                \widehat{\upsilon_\iota} \leftarrow \frac{\upsilon_\iota}{1 - \beta_2^\iota}
-                \]
-            </p>
-        
-            <p>
-                \[
-                \iota \leftarrow \iota + 1
-                \]
-            </p>
-        
-            <p>
-                \[
-                \widehat{\upsilon_{max}} \leftarrow \max(\widehat{\upsilon_\iota}, \widehat{\upsilon_{max}})
-                \]
-            </p>
-        
-            <p>
-                \[
-                \widehat{\upsilon_\iota} \leftarrow
-                \begin{cases}
-                \widehat{\upsilon_{max}} & \text{if } \text{ams} = 1 \\
-                \widehat{\upsilon_\iota} & \text{otherwise}
-                \end{cases}
-                \]
-            </p>
-        
-            <p>
-                \[
-                \Theta \leftarrow \frac{-\alpha \widehat{\delta_\iota}}{\sqrt{\widehat{\upsilon_\iota}} + \epsilon}
-                \]
-            </p>
+            <strong>Mean</strong>
+            \[\mu^\mathrm{[s]} = 1\]
+
+            <strong>Standard Deviation</strong>
+            \[\sigma^\mathrm{[s]} = 1\]
+
+            <strong>Gain</strong>
+            \[\kappa^\mathrm{[s]} = 1\]
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingXavierBaseFunction">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseXavierBaseFunction" aria-expanded="true" aria-controls="collapseXavierBaseFunction">
+            Base Function
+        </button>
+    </h2>
+    <div id="collapseXavierBaseFunction" class="accordion-collapse collapse" aria-labelledby="headingXavierBaseFunction">
+        <div class="accordion-body">
+            <strong>Gaussian Distribution</strong>
+            \[\mathcal{N} \left( x | \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right)
+            =
+            \frac{e^{-\frac{\left( x - \mu^\mathrm{[s]} \right)^2}{2 {\sigma^\mathrm{[s]}}^2}}}{\sqrt{2 \pi {\sigma^\mathrm{[s]}}^2}}\]
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingXavierVariables">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseXavierVariables" aria-expanded="true" aria-controls="collapseXavierVariables">
+            Variables
+        </button>
+    </h2>
+    <div id="collapseXavierVariables" class="accordion-collapse collapse" aria-labelledby="headingXavierVariables">
+        <div class="accordion-body">
+            <strong>Rows</strong>
+            \[n\]
+
+            <strong>Columns</strong>
+            \[m\]
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingXavierMethod">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseXavierMethod" aria-expanded="true" aria-controls="collapseXavierMethod">
+            Method
+        </button>
+    </h2>
+    <div id="collapseXavierMethod" class="accordion-collapse collapse" aria-labelledby="headingXavierMethod">
+        <div class="accordion-body">
+            <div class="accordion" id="compactedNotationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingXavierMethodCompacted">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseXavierMethodCompacted" aria-expanded="true" aria-controls="collapseXavierMethodCompacted">
+                            Compacted Notation
+                        </button>
+                    </h2>
+                    <div id="collapseXavierMethodCompacted" class="accordion-collapse collapse" aria-labelledby="headingXavierMethodCompacted">
+                        <div class="accordion-body">
+                            <strong>Initialization</strong>
+                            \[\mathbf{\Theta_P^\mathrm{[l]}}
+                            \sim
+                            \kappa^\mathrm{[s]} \sqrt{\frac{2}{n + m}} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right), \forall i \in \left[ 1, n \right], j \in \left[ 1, m \right]\]
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingXavierMethodExpanded">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseXavierMethodExpanded" aria-expanded="true" aria-controls="collapseXavierMethodExpanded">
+                            Expanded Notation
+                        </button>
+                    </h2>
+                    <div id="collapseXavierMethodExpanded" class="accordion-collapse collapse" aria-labelledby="headingXavierMethodExpanded">
+                        <div class="accordion-body">
+                            <strong>Initialization</strong>
+                            \[\begin{bmatrix}
+                            \theta_{\mathrm{p}_{0, 0}}^\mathrm{[l]} &
+                            \cdots &
+                            \theta_{\mathrm{p}_{0, n}}^\mathrm{[l]} \\
+                            \vdots &
+                            \ddots &
+                            \vdots \\
+                            \theta_{\mathrm{p}_{m, 0}}^\mathrm{[l]} &
+                            \cdots &
+                            \theta_{\mathrm{p}_{m, n}}^\mathrm{[l]} \\
+                            \end{bmatrix}
+                            \sim
+                            \begin{bmatrix}
+                            \displaystyle \kappa^\mathrm{[s]} \sqrt{\frac{2}{n + m}} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right) & \cdots & \displaystyle \kappa^\mathrm{[s]} \sqrt{\frac{2}{n + m}} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right) \\
+                            \vdots & \ddots & \vdots \\
+                            \displaystyle \kappa^\mathrm{[s]} \sqrt{\frac{2}{n + m}} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right) & \cdots & \displaystyle \kappa^\mathrm{[s]} \sqrt{\frac{2}{n + m}} \mathcal{N} \left( \mu^\mathrm{[s]}, \sigma^\mathrm{[s]}\right)
+                            \end{bmatrix}\]
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

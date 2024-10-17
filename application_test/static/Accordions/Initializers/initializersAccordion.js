@@ -1,1 +1,0 @@
-$("#XavierAccordion").load("static/Accordions/Initializers/XavierAccordion.html");

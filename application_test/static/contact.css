@@ -8,46 +8,92 @@ body {
     border-radius: 5px;
     text-align: center;
     margin: 10px;
-  }
-  
+    width: 100%;
+    max-width: none;
+}
+
 .title {
   padding-top: 0px !important;
   color: grey;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 h1 {
+  font-size: 1.2rem !important;
   padding-top: 12px !important;
-  font-size: 3.5vw !important;
-  text-wrap: nowrap;
+  text-wrap: balance;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 575px) {
+  .card {
+    max-width: 90%;
+  }
+  
   h1 {
-    font-size: 1.5vw !important;
+    font-size: 1.4rem !important;
+  }
+  
+  .title, p {
+    font-size: 1.1rem;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 576px) {
+  .card {
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    max-width: 200px;
+  }
+  
   h1 {
-    font-size: 1.7vw !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .title, p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    max-width: 250px;
+  }
+  
+  h1 {
+    font-size: 1.3rem !important;
   }
 }
 
 @media (min-width: 1200px) {
+  .card {
+    max-width: 300px;
+  }
+  
   h1 {
-    font-size: 2vw !important;
+    font-size: 1.5rem !important;
+  }
+  
+  .title, p {
+    font-size: 1rem;
   }
 }
 
 p {
   margin-top: 4px !important;
   margin-bottom: 4px !important;
+  font-size: 0.9rem;
 }
 
 img {
   border-radius: 5px 5px 0 0;
-  height: 45vh;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
 }
 
 .row {
@@ -55,8 +101,9 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   background-color:  #b5b5b5;
-  align-items: center;
-  height: 90vh;
+  align-items: stretch;
+  min-height: 90vh;
+  padding: 20px 10px;
 }
 
 .contacts {

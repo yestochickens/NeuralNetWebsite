@@ -66,13 +66,18 @@ main {
 }
 
 .carousel-container {
-    padding: 0 !important;
-    margin: 0 !important;
+    display: flex;
+    justify-content: center;
 }
 
 .slide {
     margin: 0;
     padding: 0;
+    height: 60vh;
+    max-width: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 #homeInformationText {

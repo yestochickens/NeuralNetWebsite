@@ -3,19 +3,12 @@
     src: url('static/resources/Roboto/Roboto-Medium.ttf') format('truetype'); /* Replace 'path/to/font.ttf' with the actual path to your font file */
 }
 
-
 html, body {
     margin: 0;
     padding: 0;
     background-color: rgb(255, 255, 255);
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
-
-/* body {
-    margin: 0;
-    background-color: rgb(255, 255, 255);
-    padding: 0;
-}    */
 
 .carousel-control-prev, 
 .carousel-control-next {
